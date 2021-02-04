@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>10-元素垂直外边距合并问题</title>
+    <style>
+            .box1,.box2{
+                width: 200px;
+                height: 200px;
+                background-color: gold;
+                border: 10px solid black;
+
+                /* 垂直外边距合并:
+                当两个元素垂直排列时,如果上面这个元素设置的底部的外边距 
+                下面这个元素又设置了顶部的外边距时,它们之间的止下边距不会相加,只会取两者间的较大者
+                来间它们的垂直间距 */
+                /* margin: 20px; */
+            }
+    
+            /* 浮动后垂直外边距就不会合并了 但不推荐这样做 */
+            .box2{
+                /* float: left; */
+
+                /* 如果不想垂直外边距合并 设置单边元素的上或底 值为最终间距 */
+                margin-top: 40px;
+            }
+           
+        </style>
+    
+    </head>
+    <body>
+        
+    
+        <div class="box1"></div>
+        <div class="box2"></div>
+    </body>
+    </html>

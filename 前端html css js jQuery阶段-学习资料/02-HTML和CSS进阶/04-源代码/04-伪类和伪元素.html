@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>04-伪类和伪元素</title>
+
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color: gold;
+        }
+
+        /* 伪类可以用来做特效 
+        当鼠标在元素上悬浮时 会用上hover中的设置
+        */
+        .box:hover{
+
+           background-color: green; 
+           color: red;
+        }
+
+        /* 伪元素  解决bug*/
+        /* 在前面 */
+        .div1::before {
+            content: "在前面加的文字";
+            color: red;
+
+        }
+        /* 在元素的后面 */
+        .div2::after{
+            content: "在后面写的文字";
+            color: green;
+        }
+
+        /* 
+            1.标签选择器
+            2.类选择器         .
+            3.层级/后代选择器   空格
+
+
+            4.id选择器       #
+            5.组/并集选择器   ,
+            6.伪类/伪元素选择器 
+        
+         */
+        
+    </style>
+</head>
+<body>
+
+    <div class="box">我是一个div元素</div>
+
+    <div class="div1">我是第二个div</div>
+    <div class="div2">我是第三个div</div>
+    
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>06-字符串常用方法</title>
+    <script>
+        window.onload = function () {
+            var sStr01 = 'abcdefa',
+                sStr02 = '12.5',
+                iNum = 2;
+
+            // 1.字符串拼接
+            // console.log(sStr01 + iNum);
+
+            // 2.字符串类型转换
+            // parseInt()把数值的字符串转换成整数类型,如果有小数直接去掉
+            // console.log(parseInt(sStr02) + iNum);
+            // parseFloat转换成小数
+            // console.log(parseFloat(sStr02) + iNum);
+
+            // console.log(((0.1 * 10) + (0.2 * 10)) / 10);
+            // console.log(1.1 + 0.1);
+
+
+            // 3.字符串截取
+            // 第一个参数表示:开始截取的角标 从0开始数 截取时包含开始角标
+            // 第二个参数表示:截取到的角标位置,但不包含此角标
+            //    sStr02 = sStr01.substring(1,3);
+            // 如果只传一个参数表示从第几个角标开始一直截取到最后,包含开始角标
+            // sStr02 = sStr01.substring(2);
+            // console.log(sStr02);
+
+
+            // 4.indexOf()
+            // 返回字符在字符串中第一次出现的角标
+            // console.log(sStr01.indexOf('a'));
+
+            // 如果返回-1表示字符串中没有此字符
+            // console.log(sStr01.indexOf('z'));
+            
+
+            // 5.split 把字符串拆分成数组
+            // split()如果什么也不传,会把字符串当成数组中的一个元素
+            // var aList = sStr01.split();
+            // 如果传入空字符串,就会把字符串中的每一个字符变成一个数组中的元素
+            // var aList = sStr01.split('');
+            var sStr03 = '2017-10-17';
+            // 通过传入字符来进行拆分字符串
+            // var aList = sStr03.split('-');
+
+            // console.log(aList);
+
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

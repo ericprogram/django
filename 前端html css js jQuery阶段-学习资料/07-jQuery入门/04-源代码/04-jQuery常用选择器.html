@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>04-jQuery常用选择器</title>
+    <script src="./js/jquery-1.12.4.min.js"></script>
+    <script>
+        // 文档准备
+        $(function () {
+            // 1.标签选择器
+            // var $div = $('div')
+            // $div.css({'color':'green'});
+
+            // 2.类选择器
+            // var $div1 = $('.box1');
+            // $div1.css({'color':'green'});
+
+            // 3.id选择器
+            // var $div2 = $('#box');
+            // $div2.css({'color':'green'});
+
+            // 4.层级/后代选择器
+            // var $div3 = $('.con .box');
+            // $div3.css({'color':'green'});
+
+            // 5.并级/组选择器
+            // var $divs = $('.con .box1,.a1');
+            // $divs.css({'color':'green'});
+
+            // 6.属性选择器
+            var $div4 = $('div[class=box]');  //*=只要包含 ^= 开头  $=结尾
+            $div4.css({'color':'green'});
+
+
+        })
+    </script>
+</head>
+
+<body>
+    <div class="con">我是里面两个的父级
+            <div class="box" id="box">div元素1</div>
+            <div class="ox1">div元素2</div>
+            <div class="x1">div元素3</div>
+            
+    </div>
+   
+
+
+    <a href="#" class="a1">a标签</a>
+
+</body>
+
+</html>

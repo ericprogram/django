@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>07-聊天对话框</title>
+    <style type="text/css">
+        .talk_con{
+            width:600px;
+            height:500px;
+            border:1px solid #666;
+            margin:50px auto 0;
+            background:#f9f9f9;
+        }
+        .talk_show{
+            width:580px;
+            height:420px;
+            border:1px solid #666;
+            background:#fff;
+            margin:10px auto 0;
+            overflow:auto;
+        }
+        .talk_input{
+            width:580px;
+            margin:10px auto 0;
+            overflow: hidden;
+        }
+        .whotalk{
+            width:80px;
+            height:30px;
+            float:left;
+            outline:none;
+        }
+        .talk_word{
+            width:420px;
+            height:26px;
+            padding:0px;
+            float:left;
+            margin-left:10px;
+            outline:none;
+            text-indent:10px;
+        }        
+        .talk_sub{
+            width:56px;
+            height:30px;
+            float:left;
+            margin-left:10px;
+            margin-top: 6px;
+
+        }
+        .atalk{
+           margin:10px; 
+        }
+        .atalk span{
+            display:inline-block;
+            background:#0181cc;
+            border-radius:10px;
+            color:#fff;
+            padding:5px 10px;
+        }
+        .btalk{
+            margin:10px;
+            text-align:right;
+        }
+        .btalk span{
+            display:inline-block;
+            background:#ef8201;
+            border-radius:10px;
+            color:#fff;
+            padding:5px 10px;
+        }
+    </style>
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script>
+        $(function () {
+           var $mesBox = $('#words'), // 装聊天记录的框
+           $mesType = $('#who'),   // 消息类型下拉列表
+           $text = $('#talkwords'),// 输入消息文字的输入框
+           $sendBtn = $('#talksub');// 发送按钮
+
+        //   1. 给发送按钮添加点击事件
+        $sendBtn.click(function () {
+            // 2.获取文本输入框中的内容
+            var sTextCon = $text.val();
+
+            // 3.如果文本输入框没有输入内容,弹出提示框,就结束运行
+            if (sTextCon == '') {
+               alert('老实点,不能发空消息啊!');
+               return;
+            }
+
+            // 4.获取消息类型 A说还是B说
+            var sMesType = $mesType.val(),
+            sMesContent = ''; // 拼接消息内容
+
+            // 5.根据消息的类型创建不同消息的标签
+            // if (sMesType == '0') { // A说
+            //     sMesContent = '<div class="atalk"><span>A说：'+ sTextCon +'</span></div>'
+            // } else { // B说
+            //     sMesContent = '<div class="btalk"><span>B说：'+ sTextCon +'</span></div>'
+            // }
+                // class="atalk"><span>A说：'+ sTextCon +
+            sMesContent = '<div '+ ((sMesType == '0') ? ('class="atalk"><span>A说：'+ sTextCon + '</span></div>') : ('class="btalk"><span>B说：'+ sTextCon +'</span></div>'))
+
+            // 修改标签中包裹的内容 不要忘记原有的内容
+            $mesBox.html( $mesBox.html() + sMesContent);
+
+            // 消息发送完了之后清空文本输入框中的文字
+            $text.val('');
+        })
+        })
+    </script>
+</head>
+<body>
+    <div class="talk_con">
+        <div class="talk_show" id="words">
+            <div class="atalk"><span>A说：吃饭了吗？</span></div>
+            
+            <div class="btalk"><span>B说：还没呢，你呢？</span></div>
+        </div>
+        <div class="talk_input">
+            <select class="whotalk" id="who">
+                <option value="0">A说：</option>
+                <option value="1">B说：</option>
+            </select>
+            <input type="text" class="talk_word" id="talkwords">
+            <input type="button" value="发送" class="talk_sub" id="talksub">
+        </div>
+    </div>
+</body>
+</html>

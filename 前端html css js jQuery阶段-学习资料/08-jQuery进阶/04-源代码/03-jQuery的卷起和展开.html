@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>03-jQuery的卷起和展开</title>
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color: greenyellow;
+
+            display: none;
+        }
+    </style>
+    <script src="./js/jquery-1.12.4.min.js"></script>
+    <script>
+        $(function () {
+            var $btn = $('input'),
+            $div = $('.box');
+
+            $btn.click(function () {
+                // 卷起
+                // $div.slideUp();
+                // 展开
+                // $div.slideDown();
+
+                // 卷起和展开的切换
+                $div.stop().slideToggle();
+
+
+
+            })
+        })
+    </script>
+</head>
+<body>
+    <input type="button" value="动画按钮">
+    <div class="box"></div>
+    <p>后面的小尾巴</p>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>05-行内元素特点</title>
+
+    <style>
+        /* 行内/内联元素的特点: 
+        1.宽高默认由内容决定
+        2.排列在一行,当遇到父元素的边界会自动换行
+        3.不支持宽高 margin上下 padding上下有问题
+        4.代码换行后行内元素之间有小间隙
+        5.行内元素设置文本水平对齐无效,但可以设置他们的父元素的text-align实现子元素水平对齐
+        
+         */
+
+        /* 去掉行内元素之间的小间距问题
+        1.代码不换行
+        2.浮动
+        3.父元素font-size 设置为0,然后再设置子元素自己的font-size
+        
+        
+         */
+        a,span {
+            background-color: gold;
+            font-size: 16px;
+        }
+        a{
+            /* width: 300px;
+            height: 300px; */
+            /* margin: 120px 0px; */
+            /* padding: 20px 0px; */
+
+            font-size: 16px;
+        }
+
+        body{
+            font-size: 0px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <a href="#">a标签</a>
+    <span>span标签</span>
+
+</body>
+
+</html>

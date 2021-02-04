@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>10-js中匿名函数</title>
+
+    <script>
+        window.onload = function () {
+            var oDiv = document.getElementById('div1');
+
+
+
+
+
+            function fnTest() {
+                alert('哈哈!');
+            }
+
+            // fnTest();
+
+
+            // oDiv.onclick = fnTest;
+
+            // 匿名函数:没有名字的函数 
+            // 匿名函数 不能单独定义,它必须赋值给一个变量或一个属性
+            // 如果一个函数要在多个地方去调用,就不能用匿名函数,
+            // 只在一个地方去用,为了简化代码就可以用匿名函数
+
+            // function () {
+            //     alert('哈哈!');
+            // }
+            // oDiv.onclick = function () {
+            //     alert("哈哈哈哈合!");
+            // }
+
+
+
+        }
+    </script>
+</head>
+<body>
+    <div id="div1">div标签</div>
+</body>
+</html>

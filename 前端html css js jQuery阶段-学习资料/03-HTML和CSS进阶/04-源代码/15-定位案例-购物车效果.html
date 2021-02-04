@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>15-定位案例-购物车效果</title>
+
+    <style>
+        .shop_car{
+            width: 100px;
+            height: 100px;
+            background-color: gold;
+
+            /* 设置元素元素 */
+            border-radius: 5px;
+
+            margin-top: 100px;
+
+            /* 为了子元素能正常的绝对定位父元素要设置个相对定位 */
+            position: relative;
+        }
+
+        .badge{
+            width: 28px;
+            height: 28px;
+            background-color: red;
+            color: white;
+            line-height: 28px;
+            text-align: center;
+
+            border-radius: 14px;
+
+
+            /* 绝对定位 要给父元素设置相对定位 */
+            position: absolute;
+
+            left: 86px;
+            top: -14px;
+        }
+    </style>
+</head>
+<body>
+
+
+    <div class="shop_car">
+        <div class="badge">5</div>
+    </div>
+    
+</body>
+</html>

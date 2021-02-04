@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>10-jQuery的输入框焦点和失去焦点事件</title>
+    <script src="./js/jquery-1.12.4.min.js"></script>
+    <script>
+        $(function () {
+            var $btn = $('.btn'),
+            $text = $('.text');
+
+            // 让文本输入框成为焦点,自动可以输入
+            //  $text.focus();   
+
+            $text.blur(function () {
+                // 当文本输入框输入完之后,切换到其它地方时,它就不能再输入了,失去焦点
+                // 用正则表达式来验证输入内容是否符合规定
+            });
+        })
+    </script>
+</head>
+<body>
+    <input type="button" value="按钮" class="btn">
+    <input type="text" class="text">
+    <input type="text" class="text1">
+    
+    
+</body>
+</html>

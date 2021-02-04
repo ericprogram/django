@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="./js/jquery-1.12.4.min.js"></script>
+    <title>03-360联想搜索</title>
+    <script>
+        $(function () {
+            var $txt = $('#text01');
+            var $ul = $('.list');
+
+            $txt.keyup(function () {
+
+                $.ajax({
+                url:'https://sug.so.360.cn/suggest',
+                type:'get',
+                dataType:'jsonp',
+                data:{'word':$txt.val()} // 向360提交的数据
+
+            })
+            .done(function (dat) {
+                var sTr = '';
+                for (var i = 0; i < dat.s.length; i++) {
+                    // $ul.append('<li>' + dat.s[i] + '</li>');
+                    sTr += ('<li>' + dat.s[i] + '</li>');
+                }
+
+                $ul.html(sTr);
+            })
+            .fail(function () {
+                alert('请求失败!');
+            })
+
+            })
+
+          
+        })
+    </script>
+</head>
+<body>
+    <input type="text" id="text01">
+    <ul class="list"></ul>
+    
+</body>
+</html>

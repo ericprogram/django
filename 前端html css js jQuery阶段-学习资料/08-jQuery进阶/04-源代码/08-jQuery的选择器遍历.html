@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>08-jQuery的选择器遍历</title>
+    <script src="./js/jquery-1.12.4.min.js"></script>
+    <script>
+        $(function () {
+            var $lis = $('.list li'),
+            iLen = $lis.length;
+
+            // for (var i = 0; i < iLen; i++) {
+
+            //     if (i % 2 == 1) {
+            //         $lis.eq(i).css({'color':'red'});
+            //     }
+            // }
+
+            // $(this)表示当前正遍历出来的那个标签对象
+            // each里面的匿名函数可以放两个形参
+            // 第一个参数表示: 遍历的索引 从0开始
+            // 第二个参数表示:遍历出来的那个标签对象,但要注意它是一个js的标签对象 $()
+            $lis.each(function (i) {
+                    if (i % 2 == 1) {
+                    $(this).css({'color':'red'});
+                }
+            })
+        })
+    </script>
+</head>
+<body>
+    <ul class="list">
+        <li>列表1</li>
+        <li>列表2</li>
+        <li>列表3</li>
+        <li>列表4</li>
+        <li>列表5</li>
+        <li>列表6</li>
+        <li>列表7</li>
+        <li>列表8</li>
+    </ul>
+</body>
+</html>

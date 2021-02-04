@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>09-js修改标签包裹的内容</title>
+    <script>
+        
+        // 1.浏览器/窗口加载完毕之后再去获取标签对象
+        window.onload = function () {
+            
+            var oDiv = document.getElementById('div1');
+            var oA01 = document.getElementById('a01');
+
+            // alert(oDiv.innerHTML);
+            // innerHTML 读写标签里面包裹的内容/读取标签中的元素
+            oDiv.innerHTML = '<a href="#" id="a01">一个空链接</a>';
+
+
+            oA01.href = 'http://www.itcast.cn';
+            oA01.innerHTML = '传智播客';
+        }
+    </script>
+
+
+</head>
+<body>
+    <div id="div1">哈哈</div>
+    <a href="#" id="a01">一个空链接</a>
+</body>
+</html>

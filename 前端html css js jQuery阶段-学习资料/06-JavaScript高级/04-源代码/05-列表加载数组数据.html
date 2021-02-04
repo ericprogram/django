@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>05-列表加载数组数据</title>
+
+    <style>
+        .list{
+            width: 400px;
+            list-style: none;
+            padding: 0px;
+            margin: 0 auto;
+        }
+
+        .list li{
+            font-size: 25px;
+            border-bottom: 1px dotted black;
+            line-height: 60px;
+        }
+    </style>
+
+    <script>
+        window.onload = function () {
+            var aList = ['追龙','羞羞的铁拳','英伦对决','金刚狼','战狼'],
+            oUl = document.getElementById('list')
+            sStr = '';
+
+            for (var i = 0; i < aList.length; i++) {
+                // sStr = sStr + '<li>'+ aList[i] + '</li>';
+                sStr += '<li>'+ aList[i] + '</li>';
+            }
+
+            // 把拼接好的内容 替换掉原本列表中的元素 
+            oUl.innerHTML = sStr;
+
+
+
+        }
+    </script>
+</head>
+<body>
+    <ul class="list" id="list">
+        <li>电影排行1</li>
+        <li>电影排行2</li>
+        <li>电影排行3</li>
+        <li>电影排行4</li>
+        <li>电影排行5</li>
+    </ul>
+</body>
+</html>

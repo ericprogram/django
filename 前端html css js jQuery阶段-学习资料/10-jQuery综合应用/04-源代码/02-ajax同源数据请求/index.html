@@ -1,0 +1,542 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<!-- <script type="text/javascript" src="js/jquery-1.12.4.min.js"></script> -->
+	<script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
+	<!-- <script type="text/javascript" src="js/slide.js"></script> -->
+	<title>天天生鲜-首页</title>
+	<script>
+		$(function () {
+			// 1.获取相应要操作的标签对象
+			var $slide = $('.slide'), // 整个轮播视图的div
+				$slideList = $('.slide_list'), // 图片列表
+				$lis = $('.slide_list li'),  // 四张图片的li标签
+				$prevBtn = $('.prev'),  // 左边的上一张按钮
+				$nextBtn = $('.next'),  // 右边的下一张按钮
+				$points = $('.points'),  // 用来装小圆点的列表
+				iPreviousIndex = 0,  // 正显示的这一张,也是马上要让位置的这一张索引
+				iNowIndex = 0,   // 马上要显示出来的这一张索引
+				bIsMove = false;  // 用来标记是否正在动画中
+
+			// 获取广告图片的张数
+			var iPicCount = $lis.length;
+
+			for (var i = 0; i < iPicCount; i++) {
+				// 给小圆点列表中加内容
+				$points.append('<li></li>');
+			}
+			// 默认第0个小圆点应该是高亮
+			$points.children(':first').addClass('active');
+
+
+			// 2.为动画做准备
+			// 2.1除了第0张不动,其它几张都移动到760位置为动画准备
+			$lis.not(':first').css({ 'left': 760 });
+
+			// 3.点击小圆点让图片移动
+			$points.delegate('li', 'click', function () {
+				// 设置iNowIndex的值
+				iNowIndex = $(this).index();
+				// 动画移动函数
+				fnMoveAnmation();
+			})
+
+			// 4.左右按钮点击切换图片
+			$prevBtn.click(function () {
+				if (bIsMove) return; // 如果正在动画中直接返回什么也不做
+				iNowIndex--;
+
+				fnMoveAnmation();
+			})
+
+			$nextBtn.click(function () {
+				if (bIsMove) return; // 如果正在动画中直接返回什么也不做
+				iNowIndex++;
+				fnMoveAnmation();
+			})
+
+			// 定时器要调用的函数
+			function fnAutoMove() {
+				iNowIndex++;
+				fnMoveAnmation();
+			}
+
+			// 5.定时器自动滚动
+			var oTimer = setInterval(fnAutoMove, 3000);
+
+			// 6.鼠标摸到之后停止定时器
+			$slide.mouseenter(function () {
+				clearInterval(oTimer);
+			})
+
+			// 7.鼠标离开之后再创建定时器
+			$slide.mouseleave(function () {
+				oTimer = setInterval(fnAutoMove, 3000);
+			})
+
+			// 广告图片移动的共用函数
+			function fnMoveAnmation() {
+				// 如果重复点击一个小圆点什么也不做直接返回
+				if (iNowIndex == iPreviousIndex) return;
+
+				// 如果能走到这里说明要动画
+				bIsMove = true;
+
+				// 如果最后一张了还继续下一张 应该跳转到第0张
+				if (iNowIndex > (iPicCount - 1)) {
+					iNowIndex = 0;
+
+					// 它动画显示之前先让它放在准备的位置
+					$lis.eq(iNowIndex).css({ 'left': 760 });
+
+					$lis.eq(iPreviousIndex).animate({ 'left': -760 });
+
+
+
+
+				} else if (iNowIndex < 0) {
+					// 如果已经是第0张了 还继续向上一张跳转应该让最后一张出来
+					iNowIndex = iPicCount - 1;
+
+					// 它动画显示之前先让它放在准备的位置
+					$lis.eq(iNowIndex).css({ 'left': -760 });
+					// 从0移动到760 上一张:从左边向右边移动
+					$lis.eq(iPreviousIndex).animate({ 'left': 760 });
+
+
+
+				} else {
+
+
+					// 如果当前要显示的这一张图片索引比上一张大,说明要向下一张'从右向左移动'
+					if (iNowIndex > iPreviousIndex) { // 下一张:从右边向左边移
+						// 它动画显示之前先让它放在准备的位置
+						$lis.eq(iNowIndex).css({ 'left': 760 });
+
+						$lis.eq(iPreviousIndex).animate({ 'left': -760 });
+
+					} else {
+
+						// 它动画显示之前先让它放在准备的位置
+						$lis.eq(iNowIndex).css({ 'left': -760 });
+						// 从0移动到760 上一张:从左边向右边移动
+						$lis.eq(iPreviousIndex).animate({ 'left': 760 });
+
+					}
+
+
+				}
+
+
+
+
+				$lis.eq(iNowIndex).animate({ 'left': 0 }, function () {
+					bIsMove = false; // 动画真的走完了
+				});
+
+				// 下一次动画的上一张 其它 就是上一次动画的当前张
+				iPreviousIndex = iNowIndex;
+
+				// 切换小圆点的高亮
+				$points.children().eq(iNowIndex).addClass('active').siblings().removeClass('active');
+
+
+			}
+		})
+	</script>
+
+	<script>
+		$(function () {
+			var $login = $('.user_login_btn'),
+				$userInfo = $('.user_info');
+
+			$login.children(':first').click(function () {
+
+				$login.hide(); // 登录隐藏
+
+				$.ajax({
+					url: './json/test.json',
+					type: 'get',
+					dataType: 'json'
+
+				})
+					.done(function (dat) { // 请求成功
+
+						$userInfo.show().children('em').html(dat.name);
+					})
+					// 请求错误
+					.fail(function () {
+						alert('请求错误,请重试!');
+					})
+
+			})
+
+
+		})
+	</script>
+</head>
+
+<body>
+
+	<!--  页面顶部	 -->
+	<div class="header_con">
+		<div class="header">
+			<div class="welcome fl">欢迎来到天天生鲜!</div>
+
+			<div class="top_user_info fr">
+				<div class="user_login_btn fl">
+					<a href="#">登录</a>
+					<span>|</span>
+					<a href="">注册</a>
+				</div>
+
+				<div class="user_info fl">
+					欢迎您：
+					<em>张山</em>
+				</div>
+
+				<div class="user_link fl">
+					<span>|</span>
+					<a href="">我的购物车</a>
+					<span>|</span>
+					<a href="">我的订单</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="center_con">
+		<!--  logo	 -->
+		<a href="index.html" class="logo fl">
+			<img src="images/logo.png" alt="天天生鲜网站logo">
+		</a>
+
+		<!--  搜索	 -->
+		<div class="search_con fl">
+			<form>
+				<input type="text" name="" class="input_txt fl" placeholder="搜索">
+				<input type="submit" name="" value="搜素" class="input_sub fr">
+			</form>
+		</div>
+
+		<!--  购物车	 -->
+		<div class="chart_con fr">
+			<a href="#" class="fl">我的购物车</a>
+			<span class="fr">5</span>
+		</div>
+
+	</div>
+
+	<div class="main_menu_con">
+		<div class="main_menu">
+			<h2 class="fl">全部商品分类</h2>
+			<ul class="fl">
+				<li>
+					<a href="">首页</a>
+				</li>
+				<li>
+					<a href="">手机生鲜</a>
+				</li>
+				<li>
+					<a href="">抽奖</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="center_con2">
+		<ul class="sub_menu fl">
+			<li>
+				<a href="">新鲜水果</a>
+			</li>
+			<li>
+				<a href="" class="icon02">新鲜水果</a>
+			</li>
+			<li>
+				<a href="" class="icon03">新鲜水果</a>
+			</li>
+			<li>
+				<a href="" class="icon04">新鲜水果</a>
+			</li>
+			<li>
+				<a href="" class="icon05">新鲜水果</a>
+			</li>
+			<li>
+				<a href="" class="icon06">新鲜水果</a>
+			</li>
+		</ul>
+		<div class="slide fl">
+
+			<ul class="slide_list">
+				<li>
+					<a href="javascript:;">
+						<img src="images/slide.jpg" alt="专题图片" />
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;">
+						<img src="images/slide02.jpg" alt="专题图片" />
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;">
+						<img src="images/slide03.jpg" alt="专题图片" />
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;">
+						<img src="images/slide04.jpg" alt="专题图片" />
+					</a>
+				</li>
+			</ul>
+
+			<div class="prev"></div>
+			<div class="next"></div>
+
+			<ul class="points">
+				<!-- <li class="active"></li>
+				<li></li>
+				<li></li>
+				<li></li> -->
+			</ul>
+		</div>
+		<div class="adv fr">
+			<a href="#">
+				<img src="images/adv01.jpg" alt="广告图片">
+			</a>
+			<a href="#">
+				<img src="images/adv02.jpg" alt="广告图片">
+			</a>
+		</div>
+	</div>
+
+
+
+	<div class="common_model">
+
+		<div class="common_title">
+			<h3>新鲜水果</h3>
+			<ul>
+				<li>
+					<span>|</span>
+				</li>
+				<li>
+					<a href="">加州提子</a>
+				</li>
+				<li>
+					<a href="">加州提子</a>
+				</li>
+				<li>
+					<a href="">加州提子</a>
+				</li>
+			</ul>
+			<a href="#" class="more fr">查看更多 &gt;</a>
+		</div>
+
+
+		<div class="common_goods_con">
+			<div class="common_banner fl">
+				<a href="#">
+					<img src="images/banner01.jpg" alt="商品banner">
+				</a>
+			</div>
+
+			<ul class="common_goods_list fl">
+				<li>
+					<h4>草莓</h4>
+					<a href="#">
+						<img src="images/goods_pic.jpg" alt="商品图片">
+					</a>
+					<div>¥ 38.00</div>
+				</li>
+				<li>
+					<h4>草莓</h4>
+					<a href="#">
+						<img src="images/goods_pic.jpg" alt="商品图片">
+					</a>
+					<div>¥ 38.00</div>
+				</li>
+				<li>
+					<h4>草莓</h4>
+					<a href="#">
+						<img src="images/goods_pic.jpg" alt="商品图片">
+					</a>
+					<div>¥ 38.00</div>
+				</li>
+				<li>
+					<h4>草莓</h4>
+					<a href="#">
+						<img src="images/goods_pic.jpg" alt="商品图片">
+					</a>
+					<div>¥ 38.00</div>
+				</li>
+			</ul>
+
+		</div>
+
+
+
+	</div>
+
+
+
+	<div class="common_model">
+
+		<div class="common_title">
+			<h3>海鲜水产</h3>
+			<ul>
+				<li>
+					<span>|</span>
+				</li>
+				<li>
+					<a href="">加州提子</a>
+				</li>
+				<li>
+					<a href="">加州提子</a>
+				</li>
+				<li>
+					<a href="">加州提子</a>
+				</li>
+			</ul>
+			<a href="#" class="more fr">查看更多 &gt;</a>
+		</div>
+
+
+		<div class="common_goods_con">
+			<div class="common_banner fl">
+				<a href="#">
+					<img src="images/banner02.jpg" alt="商品banner">
+				</a>
+			</div>
+
+			<ul class="common_goods_list fl">
+				<li>
+					<h4>草莓</h4>
+					<a href="#">
+						<img src="images/goods_pic.jpg" alt="商品图片">
+					</a>
+					<div>¥ 38.00</div>
+				</li>
+				<li>
+					<h4>草莓</h4>
+					<a href="#">
+						<img src="images/goods_pic.jpg" alt="商品图片">
+					</a>
+					<div>¥ 38.00</div>
+				</li>
+				<li>
+					<h4>草莓</h4>
+					<a href="#">
+						<img src="images/goods_pic.jpg" alt="商品图片">
+					</a>
+					<div>¥ 38.00</div>
+				</li>
+				<li>
+					<h4>草莓</h4>
+					<a href="#">
+						<img src="images/goods_pic.jpg" alt="商品图片">
+					</a>
+					<div>¥ 38.00</div>
+				</li>
+			</ul>
+
+		</div>
+
+
+
+	</div>
+
+	<div class="common_model">
+
+		<div class="common_title">
+			<h3>猪牛羊肉</h3>
+			<ul>
+				<li>
+					<span>|</span>
+				</li>
+				<li>
+					<a href="">加州提子</a>
+				</li>
+				<li>
+					<a href="">加州提子</a>
+				</li>
+				<li>
+					<a href="">加州提子</a>
+				</li>
+			</ul>
+			<a href="#" class="more fr">查看更多 &gt;</a>
+		</div>
+
+
+		<div class="common_goods_con">
+			<div class="common_banner fl">
+				<a href="#">
+					<img src="images/banner03.jpg" alt="商品banner">
+				</a>
+			</div>
+
+			<ul class="common_goods_list fl">
+				<li>
+					<h4>草莓</h4>
+					<a href="#">
+						<img src="images/goods_pic.jpg" alt="商品图片">
+					</a>
+					<div>¥ 38.00</div>
+				</li>
+				<li>
+					<h4>草莓</h4>
+					<a href="#">
+						<img src="images/goods_pic.jpg" alt="商品图片">
+					</a>
+					<div>¥ 38.00</div>
+				</li>
+				<li>
+					<h4>草莓</h4>
+					<a href="#">
+						<img src="images/goods_pic.jpg" alt="商品图片">
+					</a>
+					<div>¥ 38.00</div>
+				</li>
+				<li>
+					<h4>草莓</h4>
+					<a href="#">
+						<img src="images/goods_pic.jpg" alt="商品图片">
+					</a>
+					<div>¥ 38.00</div>
+				</li>
+			</ul>
+
+		</div>
+
+
+
+	</div>
+
+	<div class="footer">
+
+		<div class="footer_links">
+			<a href="">关于我们</a>
+			<span>|</span>
+			<a href="">联系我们</a>
+			<span>|</span>
+			<a href="">招聘人才</a>
+			<span>|</span>
+			<a href="">友情链接</a>
+		</div>
+
+		<p class="copyright">
+			CopyRight © 2016 北京天天生鲜信息技术有限公司 All Rights Reserved
+			<br /> 电话：010-****888 京ICP备*******8号
+
+		</p>
+	</div>
+
+
+
+</body>
+
+</html>

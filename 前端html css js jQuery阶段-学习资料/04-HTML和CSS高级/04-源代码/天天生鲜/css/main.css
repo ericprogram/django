@@ -1,0 +1,196 @@
+body{
+    font-size: 12px;
+    font-family: "Microsoft YaHei";
+}
+/* 1.欢迎您的顶部条 */
+.header_con{
+    height: 29px;
+    background-color: #f7f7f7;
+    border-bottom: 1px solid #dddddd;
+}
+
+.header{
+    width: 1200px;
+    height: 29px;
+    margin: 0 auto;
+    /* background-color: gold; */
+}
+
+.header h3{
+    font-size: 12px;
+    color: #666666;
+    line-height: 29px;
+    float: left;
+    font-weight: normal;
+}
+
+.header .header_right{
+    width: 255px;
+    height: 29px;
+    /* background-color: greenyellow; */
+}
+
+/* 用户名 */
+.header_right .user{
+    line-height: 29px;
+    color: #666;
+
+}
+
+.header_right .user a{
+    color: orange;
+}
+
+.header_right .user a:hover{
+    color: red;
+}
+
+
+.mylink{
+    line-height: 29px;
+
+}
+
+.mylink a{
+    color: #666;
+}
+
+.mylink span{
+    color: #666;
+    margin: 0px 15px;
+}
+
+
+/* 2.logo和search条 */
+.logo_search_con {
+    height: 90px;
+    background-color: gold;
+}
+
+.logo_search_con .logo_search{
+    width: 1200px;
+    height: 90px;
+    background-color: gainsboro;
+    margin: 0 auto;
+}
+
+
+/* logo图标 */
+.logo_search .logoimg{
+    display: block;
+    margin-left: 17px;
+    margin-top: 29px;
+}
+
+
+/* 3.全部商品及菜单栏 */
+.menu_con{
+    height: 40px;
+    margin-top: 26px;
+    border-bottom:2px solid #37ab40;
+
+}
+
+.menu_con .menu{
+    width: 1200px;
+    height: 40px;
+    margin: 0 auto;
+
+    background-color: gold;
+}
+.menu h1{
+    width: 200px;
+    height: 40px;
+    font-size: 14px;
+    line-height: 40px;
+    color: white;
+    background-color: #37ab40;
+    text-align: center;
+
+    float: left;
+}
+
+.menulist{
+    width: 215px;
+    height: 40px;
+    font-size: 14px;
+
+    line-height: 40px;
+
+    margin-left: 35px;
+}
+
+.menulist li{
+    /* display: inline-block; */
+    float: left;
+}
+
+.menulist li span{
+    margin: 0px 20px;
+}
+
+
+/* 4.商品列表及轮播器 */
+.type_slide_con{
+    height: 270px;
+}
+
+.type_slide{
+    height: 270px;
+    width: 1200px;
+    margin: 0 auto;
+
+    /* background-color: gold; */
+}
+
+.foodlist{
+    width: 200px;
+    height: 270px;
+    /* background-color: lightseagreen; */
+}
+
+.foodlist li{
+    width: 198px;
+    height: 44px;
+    border: 1px solid #dddddd;
+    border-top: 0px;
+    line-height: 44px;
+    text-align: center;
+
+    background: url("../images/sprite.png") no-repeat 33px 10px;
+}
+
+.foodlist .icon001{
+    background-position-y: -40px;
+}
+
+
+.foodlist li a{
+    /* background-color: red; */
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+
+
+    background: url("../images/arrow.png") no-repeat 170px 13px; 
+}
+
+/* 
+
+
+
+1.div : 270px 
+2.div :1200px 270px  居中
+3.左侧列表: ul>li>a  
+	ul: 200  270px;     
+	li  198px  44px  ;  ffffff; 居中
+	a   14px 
+	
+	
+	背景设置li  设置 icon 图标
+		     a  设置 右边箭头的图标
+
+
+
+
+*/

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>06-精灵图案例</title>
+    <style>
+        ul{
+            margin: 0px;
+            padding: 0px;
+            list-style: none;
+        }
+
+        .spritelist{
+            width: 300px;
+            /* background-color: lightgray; */
+            margin:  0 auto;
+        }
+
+        .spritelist li{
+            height: 61px;
+            /* dotted 点线 */
+            border-bottom: 1px dotted black;
+            line-height: 61px;
+            text-indent: 61px;
+
+            background: url("./images/sprite_bg.png") no-repeat 0px 11px;
+        }
+        
+       .spritelist .icon02{
+            background-position-y: -70px;
+        }
+
+        .spritelist .icon03{
+            background-position-y: -151px;
+        }
+
+        .spritelist .icon04{
+            background-position-y: -232px;
+        }
+
+        .spritelist .icon05{
+            background-position-y: -313px;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <ul class="spritelist">
+        <li>电影排行1</li>
+        <li class="icon02">电影排行2</li>
+        <li class="icon03">电影排行3</li>
+        <li class="icon04">电影排行4</li>
+        <li class="icon05">电影排行5</li>
+    </ul>
+</body>
+</html>

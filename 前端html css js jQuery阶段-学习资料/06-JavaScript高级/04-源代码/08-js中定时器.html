@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>08-js中定时器</title>
+    <script>
+        window.onload = function () {
+            
+            function fnTest() {
+                console.log("hello");
+            }
+
+            // 只执行一次的定时器
+            // 参数1:是要时间一到要执行的函数
+            // 参数2:间隔多少毫秒去执行 
+           var timer = setTimeout(fnTest,2000);
+            // 销毁只执行一次的定时器
+            clearTimeout(timer);
+
+
+            // 重复执行的定时器
+           var timerRe = setInterval(fnTest,2000);
+        //    销毁重复执行的定时器
+            clearInterval(timerRe);
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

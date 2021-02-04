@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>05-jQuery标签自带属性读取</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: greenyellow;
+
+
+        }
+    </style>
+    <script src="./js/jquery-1.12.4.min.js"></script>
+    <script>
+        $(function () {
+            var $p1 = $('p'),
+                $a = $('a'),
+                $btn = $('.btn'),
+                $text = $('.text');
+
+            // 1.获取标签的属性值
+            var sPropValue = $p1.prop('class');
+
+
+               sPropValue = $a.prop('href');
+
+            //    sPropValue = $btn.prop('value');
+
+            // val()可以用来获取所有input标签的value属性值,但主要应用在文本输入框
+            sPropValue = $text.val();
+
+            console.log(sPropValue);
+
+
+            $btn.click(function () {
+                // $a.prop({'href':'http://www.itheima.com','title':'这是黑马官网哟!'});
+                // 属性赋值,只会新值覆盖旧值
+                // $text.prop({'class':'text2'});
+
+                $text.val('abcdef');
+            })
+
+
+        })
+    </script>
+</head>
+
+<body>
+    <input type="button" value="动画按钮" class="btn">
+    <div class="box"></div>
+    <p class="p1">后面的小尾巴</p>
+    <a href="http://www.itcast.cn">这是一个a标签</a>
+    <input type="text" class="text">
+</body>
+
+</html>

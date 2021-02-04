@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>06-jQuery读写标签里面包裹的内容</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: greenyellow;
+
+
+        }
+    </style>
+    <script src="./js/jquery-1.12.4.min.js"></script>
+    <script>
+        $(function () {
+            var $p1 = $('p'),
+                $a = $('a'),
+                $btn = $('.btn'),
+                $text = $('.text'),
+                $div = $('div');
+
+          $btn.click(function () {
+
+            // 获取标签中包裹的内容
+        //    var sContnet = $a.html();
+
+        // $a.html('修改后的a标签')  
+
+            $div.html('<a href="http://www.baidu.com">这是百度</a>');
+
+          })
+
+
+        })
+    </script>
+</head>
+
+<body>
+    <input type="button" value="动画按钮" class="btn">
+    <div class="box"></div>
+    <p class="p1">后面的小尾巴</p>
+    <a href="http://www.itcast.cn">这是一个a标签</a>
+    <input type="text" class="text">
+</body>
+
+</html>

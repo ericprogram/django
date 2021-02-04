@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>10-元素浮动后的特点</title>
+
+    <style>
+
+        /* 元素浮动特点:
+        1.只有左和右浮动
+        2.浮动元素遇到父元素或其他元素都会停下来
+        3.浮动后块元素也会排在一行,宽度会默认有内容决定,相邻元素一行排不下之后会自动换行
+        4.块元素和行内元素浮动后会自动转换为浮动特性的行内块元素
+
+
+        除了做文字绕图效果时,子元素如果用了浮动,尽量全浮动,
+         */
+        
+         /* 浮动自动解决的bug:
+            1.行内元素及行内块元素之间间距问题
+            2.垂直外边距不再合并
+            3.margin-top塌陷问题
+            4.元素不在以文字基线对齐
+          */
+        div {
+            background-color: gold;
+            /* float: left; */
+        }
+
+        span{
+            width: 200px;
+            background-color: red;
+            float: left;
+        }
+
+    </style>
+</head>
+<body>
+    <span>span元素</span>
+    <div>div元素</div>
+    
+</body>
+</html>

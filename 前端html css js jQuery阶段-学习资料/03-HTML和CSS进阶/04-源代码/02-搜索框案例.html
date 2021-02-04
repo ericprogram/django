@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>02-搜索框案例</title>
+
+    <style>
+        /* 整个搜索条 */
+        .searchbar{
+          width: 602px;
+          height: 42px;
+          /* background-color: lightblue; */
+
+          margin: 0 auto;  
+        }
+
+        /* 搜索条中的输入框 */
+        .input_text{
+            width: 500px;
+            height: 40px;
+            border: 1px solid #10ad10;
+
+            /* 清除默认内边距 */
+            padding: 0px;
+
+            /* 让文字向里面缩进 */
+            text-indent: 10px;
+
+            font-size: 12px;
+            color: #757575;
+            font-family: "Microsoft YaHei";
+            /* 取消文本输入框在输入时默认的高亮边框效果 */
+            outline: none;
+            /* 浮动解决了行内元素默认间距及文本基线对齐问题 */
+            float: left;
+        }
+
+
+        .input_sub{
+            width: 100px;
+            height: 42px;
+            background-color: #10ad10;
+            /* 去掉默认边框 */
+            border: 0px;
+            outline: none;
+/* 浮动解决了行内元素默认间距及文本基线对齐问题 */
+            float: left;
+
+            color: white;
+            font-size: 18px;
+            font-family: "Microsoft YaHei";
+
+            /* 鼠标在元素上时显示为小手 */
+            cursor: pointer;
+        }
+        
+    </style>
+</head>
+<body>
+
+    <form action="" class="searchbar">
+        <input type="text" class="input_text" placeholder="请输入要搜索的内容">
+        <input type="submit" value="搜&nbsp;索" class="input_sub">
+
+    </form>
+    
+</body>
+</html>

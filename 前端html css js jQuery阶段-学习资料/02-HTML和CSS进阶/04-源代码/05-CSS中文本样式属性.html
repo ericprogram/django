@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>05-CSS中文本样式属性</title>
+
+    <style>
+        .box{
+
+            width: 100px;
+            background-color: gold;
+            /* 文字默认都是水平居左 此属性一般都是用在块元素身上   
+            */
+            text-align: right;
+
+            /* 文本首行缩进 */
+            /* text-indent: 32px; */
+            text-indent: 1em;
+            /* 是否斜体 */
+            /* font-style: italic;
+            font-size: 16px;
+            line-height: 30px;
+            font-family: "Microsoft Yahei"; */
+            /* 是否加粗 */
+            /* font-weight: bold; */
+
+
+            /* 是否斜体   是否加粗  文字大小/行高  字体 */
+            font: italic bold 16px/30px "Microsoft Yahei";
+        }
+
+        /* .box span{
+            color: red;
+            font-style: italic;
+        } */
+
+        .a1{
+            text-align: right;
+            background-color: purple;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="box"><span>吃饭</span>一个一个一个一个div元素这是一个div元素这是一个div元素这是一个div元素这是一个div元素这是一个div元素这是一个div元素这是一个div元素这是一个div元素这是一个div元素这是一个div元素</div>
+    
+
+    <a href="#" class="a1">这是一个a标签</a>
+    <a href="#" class="a1">这是一个a标签</a>
+    
+</body>
+</html>

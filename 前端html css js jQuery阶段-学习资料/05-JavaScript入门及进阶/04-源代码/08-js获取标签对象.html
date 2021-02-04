@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>08-js获取标签对象</title>
+
+    <script>
+        // 浏览器 加载完毕之后再去执行 大括号里面的代码
+        window.onload = function () {
+
+            var oDiv = document.getElementById('div1');
+            // alert(typeof(oDiv));
+            // 链式编程
+            // 通过标签对象设置css中的样式
+            oDiv.style.color = 'red';
+            oDiv.style.width = '300px';
+            oDiv.style.height = '400px';
+            // css中属性如果中间有 - 连接的在js中用这样的属性时,把中间的 - 去掉后面的首字符大写
+            oDiv.style.fontSize = '30px';
+            oDiv.style.backgroundColor = 'blue';
+
+
+            //  读取/获取属性
+            // alert(oDiv.style.color);
+
+            // alert(oDiv.className);
+            // 修改标签的class
+            // oDiv.className = 'box1';
+
+
+
+        }
+
+    </script>
+
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: gold;
+        }
+
+        .box1 {
+            width: 200px;
+            height: 200px;
+            background-color: green;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="box" id="div1">div标签</div>
+
+</body>
+
+</html>

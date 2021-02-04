@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>02-事件冒泡验证</title>
+    <style>
+        .grandfather{
+            width: 500px;
+            height: 500px;
+            background-color: gold;
+            position: relative;
+        }
+
+        .father{
+            width: 200px;
+            height: 200px;
+            background-color: green;
+        }
+
+        .son{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+
+            position: absolute;
+            left: 0px;
+            top: 500px;
+        }
+        
+    </style>
+    <script src="./js/jquery-1.12.4.min.js"></script>
+    <script>
+        $(function () {
+            // // 浏览器
+            $(document).click(function () {
+                alert('document');
+            })
+
+            // 给爷爷绑定点击
+            $('.grandfather').click(function () {
+                alert('grandfather');
+            })
+
+            // 给父亲绑定点击
+            $('.father').click(function () {
+                alert('father');
+            })
+
+            // 给儿子绑定点击
+            $('.son').click(function (event) {
+                alert('son');
+
+                // 阻止冒泡
+                // event.stopPropagation();
+                return false;
+            
+            })
+        })
+    </script>
+</head>
+<body>
+
+    <div class="grandfather">
+        <div class="father">
+            <div class="son"></div>
+        </div>
+    </div>
+    
+</body>
+</html>

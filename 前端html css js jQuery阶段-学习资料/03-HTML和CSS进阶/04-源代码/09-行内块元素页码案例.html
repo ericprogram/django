@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>09-行内块元素页码案例</title>
+
+    <style>
+        /* 列表边框 */
+        .page{
+            /* 清除列表的样式样式 */
+            margin: 0px;
+            padding: 0px;
+            list-style: none;
+
+            width: 960px;
+            height: 40px;
+            border: 1px solid #d1d1d1;
+            /* 水平居中 */
+            margin: 0 auto;
+
+            text-align: center;
+        }
+
+        .page li,.page a{
+            /* 把所有li标签转换成行内块元素 */
+            display: inline-block;
+        }
+
+        .page li a{
+            text-decoration: none;
+            color: #393c35;
+            font-size: 12px;
+            font-family: "Microsoft Yahei";
+
+            background-color: gold;
+
+            height: 26px;
+            /* 让元素增加 */
+            padding: 0px 10px;
+            /* 让a标签中的文字垂直居中 */
+            line-height: 26px;
+
+            /* 上  左右  下  */
+            margin: 7px 5px 0px;
+        }
+
+        .page li a:hover{
+            background-color: red;
+            color: white;
+        }
+
+    </style>
+</head>
+<body>
+    
+
+    <!-- ul>(li>a[href="#"]{$})*11 -->
+    <ul class="page">
+        <li><a href="#">上一页</a></li>            
+        <li><a href="#">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li><span>...</span></li>
+        <li><a href="#">11</a></li>
+        <li><a href="#">12</a></li>
+        <li><a href="#">13</a></li>
+        <li><a href="#">14</a></li>
+        <li><a href="#">下一页</a></li>
+    </ul>
+</body>
+</html>

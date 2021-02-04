@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>01-封装函数</title>
+    <script src="./js/test.js"></script>
+    <script>
+        window.onload = function () {
+            fnTest();
+
+            // 可以解决 同名函数及同名变量可能覆盖问题    不再覆盖
+            // 封装函数
+          /*   ;!function () {
+                function fnTest() {
+                    alert('hello');
+                }
+
+                fnTest();
+
+            }(); */
+
+
+            ;/* ~function () {
+                function fnTest() {
+                    alert('hello');
+                }
+
+                fnTest();
+
+            }();  */
+
+            (function () {
+                function fnTest() {
+                    alert('hello');
+                }
+
+                fnTest();
+
+            })(); 
+
+
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

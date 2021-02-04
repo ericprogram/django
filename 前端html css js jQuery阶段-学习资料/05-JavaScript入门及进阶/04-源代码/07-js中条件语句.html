@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>07-js中条件语句</title>
+    <script>
+        // 条件语句
+        /*if (10 > 5) {
+            alert("10真的大于5");
+        } 
+        else {
+            alert("不大于!");
+        } */
+
+        // 多重条件判断语句
+ /*        if (10 > 5) {
+            
+        }
+        else if (10> 11) {
+            
+        } */
+
+        var iNum01 = 10, iNum02 = 5, sStr = '10';
+
+        // "==" 在判断时先转为同一类型之后再去比较值
+/*         if (iNum01 == sStr) {
+            alert("10=='10'成立");
+        } else {
+            alert('不成立');
+        } */
+
+        // "===" 不会转换类型,判断时先看类型一不一样,如果不一样就直接不相等
+/*         if (iNum01 === sStr) {
+            alert("10=='10'成立");
+        } else {
+            alert('不成立');
+        } */
+
+        // "&&"且 一假则为假,只要有一个不成立就不成立
+/*         if (5 > 4 && 10 > 50) {
+            alert("成立");
+        } else {
+            alert('不成立');
+        } */
+
+
+        // "||"或 一真则为真,只要有一个成立就成立
+/*         if (5 > 4 || 10 > 50) {
+            alert("成立");
+        } else {
+            alert('不成立');
+        } */
+
+
+
+        var iNow = 100;
+        if (iNow == 0) {
+            alert("星期日");
+        } 
+        else if (iNow == 1) {
+            alert("星期一");
+        }
+        else if (iNow == 2) {
+            alert("星期二");
+        }
+        else if (iNow == 3) {
+            alert("星期三");
+        }
+        else if (iNow == 4) {
+            alert("星期四");
+        }
+        else if (iNow == 5) {
+            alert("星期五");
+        }
+        else if (iNow == 6) {
+            alert("星期六");
+        } else {
+            alert("不是地球的星期");
+        }
+        
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

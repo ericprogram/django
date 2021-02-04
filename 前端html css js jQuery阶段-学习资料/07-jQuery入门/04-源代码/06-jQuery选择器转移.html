@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>06-jQuery选择器转移</title>
+    <script src="./js/jquery-1.12.4.min.js"></script>
+    <script>
+        $(function () {
+            var $box3 = $('.box3');
+
+            // 1.选择同级的前一个元素和标签无关,只要是兄弟
+            // $box3.prev().css({'color':'red'});
+            // 2.选择同级的前面所有元素
+            // $box3.prevAll().css({'color':'red'});
+
+
+            // 3.选择同级后面一个元素
+            // $box3.next().css({'color':'red'});
+            // 4.选择同级后面的所有元素
+            // $box3.nextAll().css({'color':'red'});
+
+
+            // 5.除了自己以及所有同级元素
+            // $box3.siblings().css({'color':'red'});
+
+            // 6.获取直接的父级
+            // $box3.parent().css({'color':'red'});
+
+            // 7.children() 选择它的所有子集
+            // $box3.children().css({'color':'red'});
+            // 8.找指定的子集
+            // $box3.children('a').css({'color':'red'});
+
+            //9.find()查找后代
+            // $('div').find('div').css({'color':'green'});
+
+
+
+        //  length 此属性如果返回0表示选择器没有选择到标签,如果不为0就选择到了,它也会告诉你一次选择了几个
+            alert($('span').length);
+            
+        })
+    </script>
+
+</head>
+
+<body>body
+    <div>爷爷
+        <div class="con">外面的爹
+            <div class="box1">div标签1</div>
+            <p class="box2">div标签2</p>
+            <div class="box3">div标签3
+                <p class="p1">bo3的亲儿子
+                    <p class="p2">孙子标签</p>
+                </p>
+                <a href="#">a标签</a>
+            </div>
+            <div class="box4">div标签4</div>
+            <div class="box5">div标签5</div>
+
+        </div>
+    </div>
+
+
+
+
+</body>
+
+</html>

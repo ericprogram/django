@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>05-jQuery选择集的过滤</title>
+    <script src="./js/jquery-1.12.4.min.js"></script>
+    <script>
+        $(function () {
+            var $divs = $('div');
+            // 1.选择后代包含p标签的div has()里面应该传的子/后代元素
+            // $divs.has('.box1').css({'backgroundColor':'gold'});
+
+            // 2.选择集中 类名不叫box的div元素 ,和子元素无关
+            // $divs.not('.box').css({'backgroundColor':'gold'});
+
+            //
+            var $lis = $('li');
+            // 选择集中第几个元素和 嵌套无关,
+            $lis.eq(8).css({'backgroundColor':'gold'});
+
+            
+        })
+    </script>
+</head>
+
+<body>
+    <div class="box">大一div
+        <p>p标签</p>
+        <a href="#">a标签</a>
+    </div>
+<br>
+<br>
+<br>
+<br>
+<br>
+    <div class="box1">
+        我是中间打酱油的
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="box">大二div
+        <a href="#">a标签</a>
+    </div>
+
+
+    <ul class="list">
+        <li>li标签1</li>
+        <li>li标签2</li>
+        <li>li标签3</li>
+        <li>li标签4</li>
+        <li>li标签5</li>
+        <li>li标签6</li>
+        <li>li标签7</li>
+        <li>li标签8</li>
+    </ul>
+
+    <ul class="list">
+            <li>li标签1</li>
+            <li>li标签2</li>
+            <li>li标签3</li>
+            <li>li标签4</li>
+            <li>li标签5</li>
+            <li>li标签6</li>
+            <li>li标签7</li>
+            <li>li标签8</li>
+        </ul>
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>03-CSS中的id及组选择器</title>
+    <style>
+        /* id选择器 一个标签只能有一个id 
+        每一个标签的id是最好不要一样 确定它唯一
+        */
+        #box{
+            width: 200px;
+            height: 200px;
+            background-color: gold;
+        }
+
+        /* 标签的class可以有多个  每一个class以空格隔开 */
+        .box1{
+            width: 200px;
+
+        }
+        .box{
+            height: 200px;
+            background-color: red;
+        }
+
+        /* .div1{
+            width: 100px;
+            height: 100px;
+            background-color: purple;
+        }
+
+        .div2{
+            width: 100px;
+            height: 100px;
+            background-color: purple;
+        } */
+
+        /* 组/并集选择器 
+        当标签设置的CSS样式属性一样时,可以用并集/组选择器,可以简化代码
+        */
+        .div1,.div2{
+            width: 100px;
+            height: 100px;
+            background-color: purple;
+        }
+
+        
+
+
+    </style>
+</head>
+<body>
+    
+
+    <div id="box"></div>
+
+    <div class="box box1" ></div>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+     <div class="div1"></div>
+     <div class="div2"></div>
+</body>
+</html>

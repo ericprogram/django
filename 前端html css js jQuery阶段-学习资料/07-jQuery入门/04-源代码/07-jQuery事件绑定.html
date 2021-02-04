@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>07-jQuery事件绑定</title>
+    <script src="./js/jquery-1.12.4.min.js"></script>
+    <script>
+        $(function () {
+            var $lis = $('li');
+
+                // 原生js中事件都是一个属性
+            // oLis.onclick = function () {
+ 
+            // }
+                // jQuery中的事件都是一个函数
+            $lis.click(function () {
+                // this当前触发事件的那个标签对象,用此事件内部
+                // $(this).css({'color':'red'});
+                // alert($(this).html());
+
+
+                // $(this).style.fontSize='20px';
+
+                // index()可以获取当前平级元素的索引  从0开始
+                alert($(this).index());
+            })
+
+
+        })
+    </script>
+</head>
+<body>
+    <ul class="list">
+        <li>列表1</li>
+        <li>列表2</li>
+        <li>列表3</li>
+        <li>列表4</li>
+        <li>列表5</li>
+        <li>列表6</li>
+        <li>列表7</li>
+        <li>列表8</li>
+    </ul>
+
+    <ul class="list">
+            <li>列表1</li>
+            <li>列表2</li>
+            <li>列表3</li>
+            <li>列表4</li>
+            <li>列表5</li>
+            <li>列表6</li>
+            <li>列表7</li>
+            <li>列表8</li>
+        </ul>
+</body>
+</html>

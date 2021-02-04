@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>03-jQuery和原生js对比</title>
+    <script src="./js/jquery-1.12.4.min.js"></script>
+    <script>
+        // 原生js写法
+        // 文档加载完成
+        window.onload = function () {
+            var oDiv = document.getElementById('box');
+            // oDiv.style.color = 'red';
+            // 原生js只能获取行内式的css属性的值
+            alert(oDiv.style.fontSize + 'js获取');
+
+        }
+
+        // jQuery写法
+        // 文档准备好了
+        // $(document).ready(function () {
+        //     var $div = $('#box');
+        //     // $div.css({'backgroundColor':'gold','color':'red','font-size':50});
+        //     alert($div.css('font-size') + 'jQuery');
+        // })
+
+        // $().ready(function () {
+        //     var $div = $('#box');
+
+        //     alert($div.css('font-size') + 'jQuery');
+
+        // })
+
+        // $() 它是万能函数
+        $(function () {
+            var $div = $('#box');
+
+            alert($div.css('font-size') + 'jQuery');
+        })
+
+
+    </script>
+</head>
+
+<body>
+    <div class="box" id="box">div元素</div>
+
+</body>
+
+</html>

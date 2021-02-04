@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>06-todolist</title>
+	<style>
+		.list_con{
+			width:600px;
+			margin:50px auto 0;
+		}
+		.inputtxt{
+			width:550px;
+			height:30px;
+			border:1px solid #ccc;
+			padding:0px;
+			text-indent:10px;
+			outline:none;			
+		}
+		.inputbtn{
+			width:40px;
+			height:32px;
+			padding:0px;
+			border:1px solid #ccc;
+			outline:none;
+		}
+		.list{
+			margin:0;
+			padding:0;
+			list-style:none;
+			margin-top:20px;
+		}
+		.list li{
+			height:40px;
+			line-height:40px;
+			border-bottom:1px solid #ccc;
+		}
+
+		.list li span{
+			float:left;
+		}
+
+		.list li a{
+			float:right;
+			text-decoration:none;
+			margin:0 10px;
+		}
+	</style>
+	<script src="./js/jquery-1.12.4.min.js"></script>
+	<script>
+		$(function () {
+			var $txt = $('#txt1'), // 输入框
+			$addBtn = $('#btn1'), // 增加按钮
+			$ul = $('#list'); // 列表
+
+			$addBtn.click(function () {
+				var sCon = $txt.val(); // 获取文本输入框中的内容
+				if (sCon == '') { // 判断是否输入内容了
+					alert('请输入内容!');
+					return;
+				}
+
+				// 如果输入内容后点击添加 就在列表里面的后面添加一个li
+				// 新添加的内容
+				var sLi = '<li><span>'+ sCon +'</span><a href="javascript:;" class="up"> ↑ </a><a href="javascript:;" class="down"> ↓ </a><a href="javascript:;" class="del">删除</a></li>'
+				// 在列表里面的后面添加li
+				$ul.append(sLi);
+
+				// 把输入框中的内容清空
+				$txt.val('');
+
+			})
+
+			// 删除 不推荐做法,因为有新加入 而且还有多次绑定问题 用事件委托来解决此问题
+			// $('.del').click(function () {
+			// 	$(this).parent().remove();
+			// })
+
+			$ul.delegate('a','click',function () {
+				// 获取当前点击标签的class值
+				var classType = $(this).prop('class');
+
+				if (classType == 'del') { // 删除
+					$(this).parent().remove();
+
+				} else if (classType == 'up') { // 向上
+
+					if ($(this).parent().prev().length == 0) {
+						alert('到顶了!');
+					}
+					// 拿到上面一个li标签  当前点击的这个li标签
+			 		$(this).parent().prev().before($(this).parent());
+					
+				} else { // 向下
+
+					if ($(this).parent().next().length == 0) {
+						alert('到底了!');
+					}
+					// 拿到上面一个li标签  当前点击的这个li标签
+			 		$(this).parent().next().after($(this).parent());
+				}
+			})
+		})
+	</script>
+</head>
+<body>
+
+	<div class="list_con">
+	<h2>To do list</h2>
+		<input type="text" name="" id="txt1" class="inputtxt">
+		<input type="button" name="" value="增加" id="btn1" class="inputbtn">
+		
+		<ul id="list" class="list">
+
+			<li><span>学习html</span><a href="javascript:;" class="up"> ↑ </a><a href="javascript:;" class="down"> ↓ </a><a href="javascript:;" class="del">删除</a></li>
+			<li><span>学习css</span><a href="javascript:;" class="up"> ↑ </a><a href="javascript:;" class="down"> ↓ </a><a href="javascript:;" class="del">删除</a></li>
+			<li><span>学习javascript</span><a href="javascript:;" class="up"> ↑ </a><a href="javascript:;" class="down"> ↓ </a><a href="javascript:;" class="del">删除</a></li>
+
+		</ul>
+
+	</div>
+</body>
+</html>

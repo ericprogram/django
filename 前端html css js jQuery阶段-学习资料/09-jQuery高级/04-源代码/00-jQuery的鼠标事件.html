@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>00-jQuery的鼠标事件</title>
+    <style>
+        .box {
+            width: 400px;
+            height: 400px;
+            border: 5px solid black;
+            margin: 50px auto 0px;
+        }
+
+        .box1 {
+            width: 200px;
+            height: 200px;
+            background-color: gold;
+            margin: 50px auto 0px;
+        }
+    </style>
+    <script src="./js/jquery-1.12.4.min.js"></script>
+    <script>
+        $(function () {
+            /*
+              // 鼠标移入元素身上 摸到它身上时 摸到子元素时会出现重复触发
+              $('.box').mouseover(function () {
+                  $('.box').animate({ 'margin-top': 100 });
+              })
+              // 鼠标移入元素身上 摸到它身上时 摸到子元素时会出现重复触发
+              $('.box').mouseout(function () {
+                  $('.box').animate({ 'margin-top': 50 });
+              })
+  */
+
+            // 鼠标移入元素身上 摸到它身上时,摸到子元素时不会出现重复触发
+            // $('.box').mouseenter(function () {
+            //     $('.box').animate({ 'margin-top': 100 });
+            // })
+            // // 鼠标移入元素身上 摸到它身上时 摸到子元素时不会出现重复触发
+            // $('.box').mouseleave(function () {
+            //     $('.box').animate({ 'margin-top': 50 });
+            // })
+
+
+                // hover是 mouseenter 和mouseleave结合体
+            $('.box').hover(function () {
+                // mouseenter
+                $('.box').animate({ 'margin-top': 100 });
+            }, function () {
+                // mouseleave
+                $('.box').animate({ 'margin-top': 50 });
+            })
+
+        })
+    </script>
+</head>
+
+<body>
+    <div class="box">
+        <div class="box1"></div>
+    </div>
+
+</body>
+
+</html>

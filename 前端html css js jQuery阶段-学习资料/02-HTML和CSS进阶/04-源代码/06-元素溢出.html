@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>06-元素溢出</title>
+
+    <style>
+        /* 当子元素的宽高大于父元素的宽高时就会出现元素溢出的问题 */
+        .con{
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+
+            /* overflow:属性
+                visible 默认值  超出的区域显示
+                hidden: 超出父元素的区域直接裁剪掉不显示
+                scroll : 超出父元素的区域不显示,但是可以滚动查看 在有些浏览器中,它会一直显示着滚动条的背景
+                auto: 有溢出时可以滚动查看 没有溢出什么反应也没有
+             */
+            overflow: auto;
+
+        }
+
+        .box{
+            width: 150px;
+            height: 200px;
+            background-color: gold;
+        }
+    </style>
+
+</head>
+<body>
+    
+
+    <div class="con">
+        <div class="box">我是一个divw我是一个divw我是一个divw我是一个divw我是一个divw我是一个divw我是一个divw我是一个divw我是一个divw我是一个divw我是一个divw我是一个divw</div>
+    </div>
+</body>
+</html>

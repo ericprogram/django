@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>02-js中数组常用方法</title>
+    <script>
+        window.onload = function () {
+
+            var aList01 = [1, 2, 3, 4, 5];
+
+            // 1.获取数组的长度,元素个数
+            // console.log(aList01.length);
+
+            // 2.给数组中添加元素
+            // push在数组的最后添加一个新的元素
+            // aList01.push(6);
+            // push中传入几个参数 ,就会在数组最后面添加几个元素
+            // aList01.push(6,7);
+
+            // 3.只能删除数组中最后的一个元素
+            // aList01.pop();
+
+            // 4.获取数组中元素
+            // console.log(aList01[2]);
+
+            // 5.修改数组中的元素
+            // aList01[2] = '3';
+
+
+
+            // 6.splice删除及添加数组中元素
+            // 第一个参数表示:从第几个角标开始删除 包含开始角标
+            // 第二个参数表示:删除的个数
+            // aList01.splice(1,2);
+
+            // 第一个参数表示:从第几个角标开始删除 包含开始角标
+            // 第二个参数表示:删除的个数
+            // 第三个参数及以后 表示: 要添加的元素,添加到第一个参数的角标位置起
+            // aList01.splice(5,0,'1','2','3');
+
+
+
+
+            // 7.数组中的元素颠倒/反转
+            // aList01.reverse();
+            // console.log(aList01);
+
+
+
+            // 8.把数组转换/连接成字符串
+            // join()如果不传参数 此时字符之间会有逗号连接
+            //    var sStr01 = aList01.join();
+            // join('')传空字符串,直接就把每一个元素连接,中间没有其它符号
+            //    var sStr01 = aList01.join('');
+            // join('-')如果传入字符,拼接出来的字符串之间就会有此字符连接
+            var sStr01 = aList01.join('-');
+            // console.log(sStr01);
+
+
+
+            var aList02 = ['1','2','1','2'];
+            // indexOf('2')返回元素在数组中第一次出现时的角标
+            // console.log(aList02.indexOf('2'));
+            console.log(aList02.indexOf('z')); // 如果返回-1说明此字符在数组中不存在
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

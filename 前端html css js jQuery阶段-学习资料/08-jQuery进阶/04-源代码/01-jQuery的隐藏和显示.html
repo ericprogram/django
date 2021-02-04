@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>01-jQuery的隐藏和显示</title>
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color: greenyellow;
+
+            /* display: none; */
+        }
+    </style>
+    <script src="./js/jquery-1.12.4.min.js"></script>
+    <script>
+        $(function () {
+            var $btn = $('input'),
+            $div = $('.box');
+
+            $btn.click(function () {
+                
+                // $div.css({'display':'none'});
+                // $div.css({'display':'block'});
+
+                // if ($div.css('display') == 'none') { // 当前是隐藏
+                //     $div.css({'display':'block'});
+                // } else {
+                //     $div.css({'display':'none'});
+                // }
+
+                // 三目运算
+                // 条件 ? yes : no
+                // $div.css({'display': ($div.css('display') == 'none') ? 'block' : 'none' });
+
+
+                    // 隐藏元素
+                // $div.hide();
+                // 显示
+                // $div.show();
+                // 显示和隐藏切换
+                $div.toggle();
+
+
+            })
+        })
+    </script>
+</head>
+<body>
+    <input type="button" value="动画按钮">
+    <div class="box"></div>
+    <p>后面的小尾巴</p>
+</body>
+</html>

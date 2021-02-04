@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>05-js中定义函数</title>
+
+    <script>
+        
+         // 函数的预解析: 如果函数的调用写在前面,然后函数定义写在后面时 当去执行函数时发现还没定义,它会去下面找找看有没有,如果有可以正常执行
+         fnTest();
+
+
+        // 定义没有参数的函数
+        function fnTest() {
+            alert("第一次写js的函数");
+        }
+
+
+        // 变量预解析: 如果使用变量在前,变量定义写在后面,它也会自动去找,但是变量是undefined类型
+        alert(iNum);
+
+        var iNum = 100;
+
+       
+
+
+    </script>
+
+</head>
+<body>
+    
+</body>
+</html>

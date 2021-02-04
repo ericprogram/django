@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>01-js的三种书写方式</title>
+    <!-- 第三种js外链式 推荐 -->
+    <!-- 如果script标签做了链接一个js文件之后标签里面就不能再去写js的代码的
+    如果要写,重新写一个script标签
+    -->
+    <script src="./js/hello.js"></script>
+
+
+
+    <!-- 外链CSS的 -->
+    <link rel="stylesheet" href="">
+
+
+    <!-- 第二种js嵌入式 部分推荐 网站首页-->
+    <script>
+        alert("see you!");
+    </script>
+
+
+    <style>
+        .div1{
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <!-- 第一种js的行内式/行间式 不推荐-->
+    <div class="div1" style="color:red" onclick="alert('hello!')">div标签</div>
+</body>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>10-无缝滚动</title>
+	<style type="text/css">
+		body,ul{
+			margin:0;
+			padding:0;
+		}
+
+		.list_con{
+			
+			width:1000px;
+			height:200px;
+			border:1px solid #000;
+			margin:10px auto 0;
+			background-color:#f0f0f0;
+			position:relative;
+			overflow:hidden;
+		}
+
+		.list_con ul{
+			list-style:none;
+			width:2000px;
+			height:200px;
+			position:absolute;
+			left:0;
+			top:0;
+		}
+
+
+		.list_con li{
+			width:180px;
+			height:180px;
+			float:left;
+			margin:10px;
+		}
+
+		.btns_con{
+			width:1000px;
+			height:30px;
+			margin:50px auto 0;
+			position:relative;
+		}
+
+		.left,.right{
+			width:30px;
+			height:30px;
+			background-color:gold;
+			position:absolute;
+			left:-40px;
+			top:124px;
+			font-size:30px;
+			line-height:30px;
+			color:#000;
+			font-family: 'Arial';
+			text-align:center;
+			cursor:pointer;
+			border-radius:15px;
+			opacity:0.5;
+		}
+		.right{
+			left:1010px;			
+			top:124px;			
+		}
+	</style>
+
+	<script>
+		window.onload = function () {
+			var oUl = document.getElementById('list'),
+			leftBtn = document.getElementById('btn01'),
+			rightBtn = document.getElementById('btn02'),
+			oDiv = document.getElementById('slide');
+
+			// 1.动画准备,内容放大两倍
+			oUl.innerHTML +=  oUl.innerHTML;
+			
+			var iSpeed = 0, // 移动的位置
+			iMove = 5;  // 每次移动的值及方向
+
+			// 2.移动函数
+			function fnMove() {
+				// 累加移动值
+				iSpeed += iMove;
+
+				// 如果是向左移动时,值减少 不能小于-1000,如果小于-1000 直接改回到0
+				if (iSpeed < -1000) {
+					iSpeed = 0;
+				//如果是向右移动时,值增加 不能大于0,如果大于0 直接改回到-1000位置
+				} else if (iSpeed > 0) {
+					iSpeed = -1000;
+				}
+
+				// 修改位置
+				oUl.style.left = iSpeed + 'px';
+			}
+
+
+			// 3.添加定时器
+			var timer =	setInterval(fnMove,30);
+
+			// 左右按钮点击事件
+			leftBtn.onclick = function () {
+				// 向左移动
+				iMove = -5;
+			}
+
+			rightBtn.onclick = function () {
+				// 向右移动
+				iMove = 5;
+			}
+
+			// 鼠标事件 
+			// 鼠标停在元素身上时
+			oDiv.onmouseover = function () {
+				// 销毁定时器
+				clearInterval(timer);
+			}
+
+			oDiv.onmouseout = function () {
+				// 添加定时器
+				timer =	setInterval(fnMove,30);
+			}
+
+
+		}
+	</script>
+	
+</head>
+<body>
+	<div class="btns_con">
+		<div class="left" id="btn01">&lt;</div>
+		<div class="right" id="btn02">&gt;</div>
+	</div>
+	<div class="list_con" id="slide">
+		<ul id="list">
+		<li><a href=""><img src="images/goods001.jpg" alt="商品图片"></a></li>
+		<li><a href=""><img src="images/goods002.jpg" alt="商品图片"></a></li>
+		<li><a href=""><img src="images/goods003.jpg" alt="商品图片"></a></li>
+		<li><a href=""><img src="images/goods004.jpg" alt="商品图片"></a></li>
+		<li><a href=""><img src="images/goods005.jpg" alt="商品图片"></a></li>
+		</ul>
+	</div>
+</body>
+</html>
+

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>00-局部和全局变量</title>
+    <script>
+        window.onload = function () {
+            
+            var iNum = 10;
+
+            function fnTest() {
+                // 局部变量的优先级比全局变量大,如果函数内有和全局变量同名的局部变量,会直接屏蔽掉全局变量,如果此时提前使用变量会出现 undefined
+                alert(iNum); 
+               var iNum = 20;
+               alert(iNum); // 20
+
+            }
+            iNum = 30;
+
+            // alert(iNum); // 10
+            fnTest();
+            // alert(iNum); // 20
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

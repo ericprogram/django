@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>07-行内元素菜单案例</title>
+
+    <style>
+        /* 外边的大框 */
+        .menu{
+            width: 960px;
+            height: 40px;
+            border: 1px solid #d1d1d1;
+
+            margin: 0 auto;
+            /* 行内元素设置文本水平对齐无效,但可以设置他们的父元素的text-align实现子元素水平对齐 */
+            text-align: center;
+        }
+        /* a标签 */
+        .menu a{
+            text-decoration: none;
+        }
+
+        .menu a,.menu span{
+            font-size: 14px;
+            color: #3d3d3d;
+            font-family: "Microsoft Yahei";
+            line-height: 40px;
+        }
+        /* span标签 */
+        .menu span{
+            margin: 0 20px;
+        }
+
+        .menu a:hover{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- div>(a[href="#"]{首 页}+span{|})*7 -->
+    <div class="menu">
+        <a href="#">首 页</a>
+        <span>|</span>
+        <a href="#">首 页</a>
+        <span>|</span>
+        <a href="#">首 页</a>
+        <span>|</span>
+        <a href="#">首 页</a>
+        <span>|</span>
+        <a href="#">首 页</a>
+        <span>|</span>
+        <a href="#">首 页</a>
+        <span>|</span>
+        <a href="#">首 页</a>
+    </div>
+</body>
+</html>

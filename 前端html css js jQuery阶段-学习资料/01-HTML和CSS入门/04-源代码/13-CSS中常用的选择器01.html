@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>13-CSS中常用的选择器01</title>
+
+    <style>
+        /* 1.标签选择器 */
+        /* p{
+            color: red;
+        } */
+
+        /* 2. 类选择器 不要少了点点*/
+        /* .p1{
+            color: red;
+        } */
+
+        /* 3.层级/后代选择器 */
+        .p1 p{
+            color: red;
+        }
+
+
+    </style>
+</head>
+<body>
+
+    <div class="p1">
+        <p>我是一个小标签</p>
+    </div>
+
+
+
+
+    <p class="p1">我们好饿啊!</p>
+    <p>我们真的好饿啊!</p>
+</body>
+</html>
