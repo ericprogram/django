@@ -1,0 +1,1 @@
+from django.conf.urls import urlfrom . import viewsurlpatterns = [    # url(正则, 函数名, 路由别名)    # as_view()方法的作用将类中的方法转换为函数, 根据请求方法    # 动态查找类中的方法    url(r'^demoview/$', views.DemoView.as_view()),    # url(r'^demoview/$', views.my_decorator(views.DemoView.as_view())),  # 此写法会状类视图中的所有方法都进行装饰    # 演示模板使用    url(r'^template_demo/$', views.template_demo),]
