@@ -6,11 +6,11 @@
 </head>
 <body>
     {% for item in jinja2_list %}
-        <li>{{ item }}</li>
-{#        {{ loop.index0 }}#}
+{#        <li>{{ item }}</li>#}
+        {{ loop.index0 }} {# jinja2 索引,index0是从零开始 #}
     {% endfor %}
 
-    {{ abc | listreverse }}
+    {{ abc | do_listreverse }}
 
 </body>
 </html>

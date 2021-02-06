@@ -6,6 +6,7 @@ from django.views import View
 
 # 模板
 
+
 class TempView(View):
 
     def get(self,request):
@@ -31,7 +32,7 @@ class TempChildView(View):
 
 
 class Jinja2View(View):
-    def get(self,request):
+    def get(self, request):
         date = {
             'jinja2_list' : ["a", "b", "c"],
             'abc': "B"
