@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'classview.apps.ClassviewConfig', # 注册应用
+    'classview.apps.ClassviewConfig',  # 注册应用
+    # 如果应用中定义了模板，并要做迁移建表动作，应用必须注册，如果应用中使用模板尽量注册应用，不然django模板引擎的自定义过滤器无法使用
     'templateapp.apps.TemplateappConfig',
 
 ]
@@ -116,10 +117,21 @@ WSGI_APPLICATION = 'demo3.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
+# 数据库配置项目
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        # 数据库引擎
+        'ENGINE': 'django.db.backends.mysql',
+        # 数据库主机
+        'HOST': '127.0.0.1',
+        # 数据库端口
+        'PORT': 3306,
+        # 数据库用户名
+        'USER':'eric',
+        # 数据库用户密码
+        'PASSWORD': '123456',
+        # 数据库名字
+        'NAME': 'django_demo'
     }
 }
 

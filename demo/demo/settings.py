@@ -43,7 +43,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    # 如果应用中定义的模型，并要做迁移建表时，必须注册、安装应用，如果应用中只有视图和路由这些代码应用可注册，可不注册
+    # 如果应用中定义的模型，并要做迁移建表时，必须注册、安装应用，
+    # 如果应用中只有视图和路由这些代码应用可注册，可不注册
+    # 如果因用中使用模板劲量注册
     'users.apps.UsersConfig',
 
 ]
