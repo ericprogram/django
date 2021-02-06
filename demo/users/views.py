@@ -1,31 +1,27 @@
-from django.shortcuts import render, reverse
+from django.shortcuts import render
 from django.http import HttpResponse
 
 # Create your views here.
-"""
-路由定义三种写法:
-1. 总 + 子
-2. 总
-3. 总 + 子
-"""
 
+"""
+定义视图函数:
+1.至少要有一个函数，用来接收函数请求对象
+2.在函数最后必须要要返回一个响应对戏
 
-# GET http://127.0.0.1:8000/users/index/?a=10&b=20
+"""
+# http://127.0.0.1:8000/users/index/
 def index(request):
-    """
-    视图函数, 只少要有一个参数
-    :param request: 接收请求对象 类型HttpRequest
-    :return: 响应对象  HttpResponse
-    """
-    return HttpResponse('hello world')
+    # 省略了业务逻辑处理代码
+    return HttpResponse("hello，django！")
 
 
-# GET /users/say/
+def test2(request):
+    return HttpResponse("TEST2")
+
+
 def say(request):
-    print(reverse('users:index'))  # /users/index/
-    return HttpResponse('say')
+    return HttpResponse("say")
 
 
-# GET /users/sayhello/
 def say_hello(request):
-    return HttpResponse('say_hello')
+    return HttpResponse("say hello")
