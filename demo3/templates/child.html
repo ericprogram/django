@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block bodycontent %}
+    子模板网页中间内容
+    {{ block.super }}{# 如果重写父类指定区域后，还想拥有父模板中的内容 #}
+{% endblock bodycontent %}
+
+{% block title %}
+    子模板
+{% endblock title %}

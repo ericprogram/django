@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jinja2_test</title>
+</head>
+<body>
+    {% for item in jinja2_list %}
+        <li>{{ item }}</li>
+{#        {{ loop.index0 }}#}
+    {% endfor %}
+
+    {{ abc | listreverse }}
+
+</body>
+</html>

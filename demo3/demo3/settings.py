@@ -60,8 +60,23 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'demo3.urls'
 
-# 模板配置项
+# Jinja2模板配置项
 TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.jinja2.Jinja2', # 修改1
+        'DIRS': [os.path.join(BASE_DIR,'templates')], #模板文件存放目录,存放模板 E:/eric/py_virtualenv/py_django/demo3/templates
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'environment':'jinja2_env.environment', # 修改2
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+    # Django 自带模板
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [os.path.join(BASE_DIR,'templates')], #模板文件存放目录,存放模板 E:/eric/py_virtualenv/py_django/demo3/templates
@@ -74,8 +89,26 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
             ],
         },
-    },
+    }
+
 ]
+
+# 模板配置项
+# TEMPLATES = [
+#     {
+#         'BACKEND': 'django.template.backends.django.DjangoTemplates',
+#         'DIRS': [os.path.join(BASE_DIR,'templates')], #模板文件存放目录,存放模板 E:/eric/py_virtualenv/py_django/demo3/templates
+#         'APP_DIRS': True,
+#         'OPTIONS': {
+#             'context_processors': [
+#                 'django.template.context_processors.debug',
+#                 'django.template.context_processors.request',
+#                 'django.contrib.auth.context_processors.auth',
+#                 'django.contrib.messages.context_processors.messages',
+#             ],
+#         },
+#     },
+# ]
 
 WSGI_APPLICATION = 'demo3.wsgi.application'
 

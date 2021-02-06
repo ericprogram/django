@@ -20,3 +20,20 @@ class TempView(View):
         return render(request,'index.html',context=date)
 
 
+class TempBaseView(View):
+    def get(self,request):
+        return render(request,'base.html')
+
+
+class TempChildView(View):
+    def get(self,request):
+        return render(request,'child.html')
+
+
+class Jinja2View(View):
+    def get(self,request):
+        date = {
+            'jinja2_list' : ["a", "b", "c"],
+            'abc': "B"
+        }
+        return render(request,'jinja2_test.html',context=date)

@@ -2,7 +2,7 @@
 /shelf/
 /workspace.xml
 # Datasource local storage ignored files
-/../../../../../:\eric\django\demo\.idea/dataSources/
+/../../../../../../:\eric\py_virtualenv\py_django\demo\.idea/dataSources/
 /dataSources.local.xml
 # Editor-based HTTP Client requests
 /httpRequests/
