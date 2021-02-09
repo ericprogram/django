@@ -25,7 +25,7 @@ SECRET_KEY = '(9#khzk$6ay69+0-7h&by8o(8+er43z_cs85kol5ro3tj!mrs2'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '0.0.0.0:8000']
 
 
 # Application definition
@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'booktest.apps.BooktestConfig',  # 模型迁移建表必须注册应用
 ]
 
 MIDDLEWARE = [
@@ -115,9 +117,11 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
-
-TIME_ZONE = 'UTC'
+# LANGUAGE_CODE = 'en-us'
+#
+# TIME_ZONE = 'UTC'
+LANGUAGE_CODE = 'zh-hans'   # 使用中国语言
+TIME_ZONE = 'Asia/Shanghai'  # 使用中国上海时间
 
 USE_I18N = True
 
