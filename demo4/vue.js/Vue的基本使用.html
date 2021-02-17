@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Vue的基本使用</title>
+    <!-- 01.导包 -->
+    <script src="vue.js"></script>
+    <script>
+        // 03. 监听
+        window.onload = function () {
+            // 04:创建vue
+            var vm = new Vue({
+                // 绑定操作对象
+                el:'.box',
+                data: {
+                    content: 'Vue的基本使用'
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+    <!-- 02:div标签(设置模板变量)-->
+    <div class="box">{{content}}</div>
+
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>列表渲染</title>
+    <script src="vue.js"></script>
+    <script>
+        window.onload = function () {
+            var vm = new Vue({
+                el:'.box',
+                data:{
+                    flag:3
+                }
+            });
+        }
+    </script>
+
+    <script>
+    window.onload = function () {
+    var vm = new Vue({
+        el:'.box',
+        data:{
+            // 01: 普通列表
+            itemList:[1, 2, 3, 4, 5],
+            // 02: 列表下标
+            indexList:['a','b','c','d'],
+            // 03: 有且只有一个对象
+            objData:{
+                name:'小明',
+                age:19
+            },
+            // 04: 对象列表
+            objList:[
+                {
+                    name:'小明',
+                    age:20
+                },
+                {
+                    name:'小红',
+                    age:21
+                }
+            ]
+        }
+    });
+}
+</script>
+</head>
+<body>
+    <div class="box">
+
+        <!-- 普通列表 -->
+        <li v-for='item in itemList'>{{item}}</li>
+
+        <!-- 列表下标 -->
+        <li v-for='(item,index) in indexList'>角标{{index}}==数值{{item}}</li>
+
+        <!-- 有且只有一个对象 -->
+        <li v-for='item in objData'>{{item}}</li>
+        <li v-for='(obj,key) in objData'>属性值{{obj}}-----属性名{{key}}</li>
+
+        <!-- 对象列表 -->
+        <li v-for='obj in objList'>属性值1:{{obj.name}}==属性值2:{{obj.age}}</li>
+    </div>
+</body>
+</html>

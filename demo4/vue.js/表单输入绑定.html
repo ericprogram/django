@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>表单输入绑定</title>
+    <script src="vue.js"></script>
+    <script>
+        window.onload = function () {
+            var vm = new Vue({
+                el:'.box',
+                data:{
+                    flag:3
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+    <div class="box">
+        <!-- 01.单行文本框 -->
+        <input type="text" v-model='content'>
+        <p>{{content}}</p>
+
+        <!-- 02.多行文本框 -->
+        <textarea v-model='content'></textarea>
+        <p>{{content}}</p>
+
+
+        <!-- 03.单选框 -->
+        <input type="radio" name="sex" value="男" v-model='content'>男
+        <input type="radio" name="sex" value="女"  v-model='content'>女
+        <p>{{content}}</p>
+
+        <!-- 04.多选框 -->
+        <input type="checkbox" name="lk" value="吃饭" v-model='like'>吃饭
+        <input type="checkbox" name="lk" value="睡觉" v-model='like'>睡觉
+        <input type="checkbox" name="lk" value="打豆豆" v-model='like'>打豆豆
+        <p>{{like}}</p>
+
+        <!-- 05.下拉框 -->
+        <select name="addr" v-model='address'>
+            <option value="北京">北京</option>
+            <option value="上海">上海</option>
+            <option value="广州">广州</option>
+            <option value="深圳">深圳</option>
+        </select>
+        <p>{{address}}</p>
+
+    </div>
+</body>
+</html>

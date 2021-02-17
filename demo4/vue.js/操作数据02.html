@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>操作数据</title>
+    <script src="vue.js"></script>
+    <script>
+        window.onload = function () {
+            // uve对象
+            var vm = new Vue({
+                // 标签对象
+                el:'.box',
+                // 数据和属性
+                data:{
+                    content:'操作数据',
+                    linkdata:'百度链接',
+                    url:'http://www.baidu.com',
+                    count:0
+                },
+                // 方法
+                methods: {
+                    fnAddClick:function () {
+                        // 跨域
+                       this.count += 1; 
+                    }
+                }
+
+            });
+        }
+    </script>
+</head>
+<body>
+    <div class="box">
+        <!-- 第一种.v-on: -->
+        <!-- <button v-on:click='fnAddClick'>计数器:{{count}}</button> -->
+        <!-- 第二种.@ -->
+        <button @click='fnAddClick'>计数器:{{count}}</button>
+        <a v-bind:href="url" target="_blank">{{linkdata}}</a>
+        <p>{{content}}</p>
+    </div> 
+</body>
+</html>

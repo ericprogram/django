@@ -41,14 +41,16 @@ class Bookinfo(models.Model):
     # 自定义模型管理类，如果自定义后，原本objects，就不能用
     # books = BookInfoManager()
 
-
-    """图书模型"""
+    """ 图书模型 """
     btitle = models.CharField(max_length=20, verbose_name="书名")
     bpub_date = models.DateField(verbose_name="发布日期")
     bread = models.IntegerField(default=0, verbose_name="阅读量")
     bcomment = models.IntegerField(default=0, verbose_name="评论")
     is_delete = models.BooleanField(default=False, verbose_name="逻辑删除")
-
+    # 如果模型已经迁移，并且表中已经有数据时，后追加的字段必须给默认值或者可以为空，不然迁移报错
+    # 迁移命令: 1. python manage.py makemigrations
+    #          2. python manage.py migrate
+    image = models.ImageField(upload_to='books', null=True, verbose_name='图片')
 
     class Meta:
         db_table = "tb_books"  # 自定义表的名字
@@ -72,6 +74,7 @@ class Bookinfo(models.Model):
         return self.bpub_date.strftime('%Y-%m-%d')
     pub_date.short_description = '发布日期'
     pub_date.admin_order_field = 'bpub_date'
+
 
 # 定义英雄模型类HeroInfo
 class HeroInfo(models.Model):

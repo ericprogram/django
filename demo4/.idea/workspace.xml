@@ -20,15 +20,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="78dc1e1c-0dc6-4ebe-9f8f-1016379aa349" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/booktest/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/8774ecbb-051c-4083-a3f1-fe2363f545a6.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/8774ecbb-051c-4083-a3f1-fe2363f545a6.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue.js/Todolist案例.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue.js/Vue的基本使用.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue.js/vue.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue.js/列表渲染.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue.js/操作数据.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue.js/操作数据02.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue.js/条件渲染.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue.js/表单输入绑定.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/booktest/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/booktest/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/booktest/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/booktest/apps.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/booktest/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/booktest/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/booktest/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/booktest/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/demo4/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/demo4/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo4/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/demo4/urls.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,6 +45,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -57,10 +61,11 @@
   </component>
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/vue.js" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -69,49 +74,25 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
-  <component name="RunManager" selected="Python.manage">
-    <configuration name="manage" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="demo4" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/manage.py" />
-      <option name="PARAMETERS" value="runserver 127.0.0.1:8000" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\eric\py_django\django\demo4\vue.js" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JavaScript Debug.列表渲染.html">
+    <configuration name="Todolist案例.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/demo4/vue.js/Todolist案例.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
-    <configuration name="settings" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="demo4" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/demo4" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/demo4/settings.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
+    <configuration name="Vue的基本使用.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/demo4/vue.js/Vue的基本使用.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="条件渲染.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/demo4/vue.js/条件渲染.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="列表渲染.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/demo4/vue.js/列表渲染.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="表单输入绑定.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/demo4/vue.js/表单输入绑定.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
     <configuration name="demo4" type="Python.DjangoServer" factoryName="Django server">
@@ -139,13 +120,19 @@
     </configuration>
     <list>
       <item itemvalue="Django Server.demo4" />
-      <item itemvalue="Python.manage" />
-      <item itemvalue="Python.settings" />
+      <item itemvalue="JavaScript Debug.条件渲染.html" />
+      <item itemvalue="JavaScript Debug.列表渲染.html" />
+      <item itemvalue="JavaScript Debug.表单输入绑定.html" />
+      <item itemvalue="JavaScript Debug.Todolist案例.html" />
+      <item itemvalue="JavaScript Debug.Vue的基本使用.html" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.manage" />
-        <item itemvalue="Python.settings" />
+        <item itemvalue="JavaScript Debug.列表渲染.html" />
+        <item itemvalue="JavaScript Debug.Vue的基本使用.html" />
+        <item itemvalue="JavaScript Debug.Todolist案例.html" />
+        <item itemvalue="JavaScript Debug.表单输入绑定.html" />
+        <item itemvalue="JavaScript Debug.条件渲染.html" />
       </list>
     </recent_temporary>
   </component>
@@ -159,6 +146,8 @@
       <updated>1612751985589</updated>
       <workItem from="1612751986630" duration="23226000" />
       <workItem from="1612834191089" duration="19899000" />
+      <workItem from="1612930137021" duration="339000" />
+      <workItem from="1613353452033" duration="10828000" />
     </task>
     <servers />
   </component>
@@ -182,30 +171,42 @@
       <screen x="0" y="0" width="1920" height="1046" />
     </state>
     <state x="414" y="178" key="#com.intellij.execution.impl.EditConfigurationsDialog/1920.0.1920.1046/0.0.1920.1046@0.0.1920.1046" timestamp="1612882599132" />
-    <state x="695" y="323" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1612776410846">
+    <state x="695" y="323" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1613354900553">
       <screen x="0" y="0" width="1920" height="1046" />
     </state>
-    <state x="695" y="323" key="#com.intellij.fileTypes.FileTypeChooser/1920.0.1920.1046/0.0.1920.1046@0.0.1920.1046" timestamp="1612776410846" />
-    <state width="938" height="286" key="GridCell.Tab.0.bottom" timestamp="1612886318135">
+    <state x="695" y="323" key="#com.intellij.fileTypes.FileTypeChooser/1920.0.1920.1046/0.0.1920.1046@0.0.1920.1046" timestamp="1613354900553" />
+    <state x="740" y="278" key="FileChooserDialogImpl" timestamp="1613361115317">
       <screen x="0" y="0" width="1920" height="1046" />
     </state>
-    <state width="938" height="286" key="GridCell.Tab.0.bottom/1920.0.1920.1046/0.0.1920.1046@0.0.1920.1046" timestamp="1612886318135" />
-    <state width="938" height="286" key="GridCell.Tab.0.center" timestamp="1612886318135">
+    <state x="740" y="278" key="FileChooserDialogImpl/1920.0.1920.1046/0.0.1920.1046@0.0.1920.1046" timestamp="1613361115317" />
+    <state width="1877" height="286" key="GridCell.Tab.0.bottom" timestamp="1613400807287">
       <screen x="0" y="0" width="1920" height="1046" />
     </state>
-    <state width="938" height="286" key="GridCell.Tab.0.center/1920.0.1920.1046/0.0.1920.1046@0.0.1920.1046" timestamp="1612886318135" />
-    <state width="938" height="286" key="GridCell.Tab.0.left" timestamp="1612886318135">
+    <state width="1877" height="286" key="GridCell.Tab.0.bottom/1920.0.1920.1046/0.0.1920.1046@0.0.1920.1046" timestamp="1613400807287" />
+    <state width="1877" height="286" key="GridCell.Tab.0.center" timestamp="1613400807287">
       <screen x="0" y="0" width="1920" height="1046" />
     </state>
-    <state width="938" height="286" key="GridCell.Tab.0.left/1920.0.1920.1046/0.0.1920.1046@0.0.1920.1046" timestamp="1612886318135" />
-    <state width="938" height="286" key="GridCell.Tab.0.right" timestamp="1612886318135">
+    <state width="1877" height="286" key="GridCell.Tab.0.center/1920.0.1920.1046/0.0.1920.1046@0.0.1920.1046" timestamp="1613400807287" />
+    <state width="1877" height="286" key="GridCell.Tab.0.left" timestamp="1613400807287">
       <screen x="0" y="0" width="1920" height="1046" />
     </state>
-    <state width="938" height="286" key="GridCell.Tab.0.right/1920.0.1920.1046/0.0.1920.1046@0.0.1920.1046" timestamp="1612886318135" />
+    <state width="1877" height="286" key="GridCell.Tab.0.left/1920.0.1920.1046/0.0.1920.1046@0.0.1920.1046" timestamp="1613400807287" />
+    <state width="1877" height="286" key="GridCell.Tab.0.right" timestamp="1613400807287">
+      <screen x="0" y="0" width="1920" height="1046" />
+    </state>
+    <state width="1877" height="286" key="GridCell.Tab.0.right/1920.0.1920.1046/0.0.1920.1046@0.0.1920.1046" timestamp="1613400807287" />
     <state x="461" y="167" key="SettingsEditor" timestamp="1612796447835">
       <screen x="0" y="0" width="1920" height="1046" />
     </state>
     <state x="461" y="167" key="SettingsEditor/1920.0.1920.1046/0.0.1920.1046@0.0.1920.1046" timestamp="1612796447835" />
+    <state x="681" y="264" width="540" height="524" key="StructurePopup" timestamp="1613358884479">
+      <screen x="0" y="0" width="1920" height="1046" />
+    </state>
+    <state x="681" y="264" width="540" height="524" key="StructurePopup/1920.0.1920.1046/0.0.1920.1046@0.0.1920.1046" timestamp="1613358884479" />
+    <state x="623" y="226" width="672" height="678" key="search.everywhere.popup" timestamp="1613399483596">
+      <screen x="0" y="0" width="1920" height="1046" />
+    </state>
+    <state x="623" y="226" width="672" height="678" key="search.everywhere.popup/1920.0.1920.1046/0.0.1920.1046@0.0.1920.1046" timestamp="1613399483596" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -219,7 +220,7 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/demo4$manage.coverage" NAME="manage Coverage Results" MODIFIED="1612885516166" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/demo4$manage.coverage" NAME="manage Coverage Results" MODIFIED="1613359165906" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/demo4$settings.coverage" NAME="settings Coverage Results" MODIFIED="1612770263270" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/demo4" />
   </component>
 </project>

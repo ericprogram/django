@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>条件渲染</title>
+    <script src="vue.js"></script>
+    <script>
+        window.onload = function () {
+            var vm = new Vue({
+                el:'.box',
+                data:{
+                    flag:3
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+    <div class="box">
+        <!-- 01:v-if -->
+         <p v-if='flag==1'>01:v-if</p>
+        <!-- 02:v-else-if -->
+        <p v-else-if='flag==2'>02:v-else-if</p>
+        <!-- 03:v-else-if -->
+        <p v-else-if='flag==3'>03:v-else-if</p>
+        <!-- 04:v-else -->
+        <p v-else>04:v-else</p>
+        <!-- 05:v-show -->
+        <p v-show='flag==3'>05:v-show</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>02-操作数据</title>
+    <script src="vue.js"></script>
+    <script>
+        window.onload = function () {
+            // uve对象
+            var vm = new Vue({
+                el:'.box',
+                data:{
+                    content:'操作数据',
+                    linkdata:'百度链接',
+                    url:'http://www.baidu.com'
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+    <div class="box">
+        <!-- 第一种. v-bind: -->
+        <!-- <a v-bind:href="url" target="_blank">{{linkdata}}</a> -->
+        <!-- 第二种. : -->
+        <a :href="url" target="_blank">{{linkdata}}</a>
+        <p>{{content}}</p>
+    </div> 
+</body>
+</html>
