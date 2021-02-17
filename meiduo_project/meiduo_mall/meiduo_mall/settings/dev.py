@@ -1,5 +1,6 @@
 """ 开发环境配置文件 """
 import os
+import sys
 
 """
 Django settings for meiduo_mall project.
@@ -15,9 +16,41 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 from pathlib import Path
 
+
+# print('sys path :', sys.path)
+
+# 用Pycharm 直接打开导 文件直接会被加入sys.path中作为导包路径
+# Python解释器会将项目启动文件所在的目录，也自动加入sys.path中作为导包路径
+
+# ['E:\\eric\\py_django\\django\\meiduo_project\\meiduo_mall',
+# 'E:\\eric\\py_django\\django\\meiduo_project',
+# 'C:\\Program Files\\JetBrains\\PyCharm 2020.2\\plugins\\python\\helpers\\pycharm_display',
+# 'D:\\Programs\\Python\\Python38\\python38.zip',
+# 'D:\\Programs\\Python\\Python38\\DLLs',
+# 'D:\\Programs\\Python\\Python38\\lib',
+# 'D:\\Programs\\Python\\Python38',
+# 'C:\\Users\\NING MEI\\AppData\\Roaming\\Python\\Python38\\site-packages',
+# 'D:\\Programs\\Python\\Python38\\lib\\site-packages',
+# 'C:\\Program Files\\JetBrains\\PyCharm 2020.2\\plugins\\python\\helpers\\pycharm_matplotlib_backend']
+
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-print(BASE_DIR)
+
+# 追加项目导包路径
+sys.path.insert(0, os.path.join(BASE_DIR, 'apps'))
+
+# print('sys path :', sys.path)
+
+# ['E:\\eric\\py_django\\django\\meiduo_project\\meiduo_mall\\meiduo_mall\\apps',
+# 'E:\\eric\\py_django\\django\\meiduo_project\\meiduo_mall',
+# 'E:\\eric\\py_django\\django\\meiduo_project',
+# 'C:\\Program Files\\JetBrains\\PyCharm 2020.2\\plugins\\python\\helpers\\pycharm_display',
+# 'D:\\Programs\\Python\\Python38\\python38.zip', 'D:\\Programs\\Python\\Python38\\DLLs',
+# 'D:\\Programs\\Python\\Python38\\lib', 'D:\\Programs\\Python\\Python38',
+# 'C:\\Users\\NING MEI\\AppData\\Roaming\\Python\\Python38\\site-packages',
+# 'D:\\Programs\\Python\\Python38\\lib\\site-packages',
+# 'C:\\Program Files\\JetBrains\\PyCharm 2020.2\\plugins\\python\\helpers\\pycharm_matplotlib_backend']
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
@@ -40,7 +73,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # 'meiduo_mall.apps.users.apps.UsersConfig'
+    'users.apps.UsersConfig'
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
