@@ -12,3 +12,16 @@ INFO 2021-02-17 16:22:47,094 autoreload 240 E:\eric\py_django\django\meiduo_proj
 INFO 2021-02-17 16:22:48,170 autoreload 617 Watching for file changes with StatReloader
 INFO 2021-02-17 16:22:58,786 autoreload 240 E:\eric\py_django\django\meiduo_project\meiduo_mall\meiduo_mall\settings\dev.py changed, reloading.
 INFO 2021-02-17 16:22:59,856 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-02-17 16:28:47,327 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-02-17 16:28:49,718 basehttp 157 "GET / HTTP/1.1" 200 16299
+INFO 2021-02-17 16:28:49,747 basehttp 157 "GET /static/admin/css/fonts.css HTTP/1.1" 200 423
+INFO 2021-02-17 16:28:49,798 basehttp 157 "GET /static/admin/fonts/Roboto-Regular-webfont.woff HTTP/1.1" 200 85876
+INFO 2021-02-17 16:28:49,799 basehttp 157 "GET /static/admin/fonts/Roboto-Bold-webfont.woff HTTP/1.1" 200 86184
+INFO 2021-02-17 16:28:49,800 basehttp 157 "GET /static/admin/fonts/Roboto-Light-webfont.woff HTTP/1.1" 200 85692
+WARNING 2021-02-17 16:29:35,309 log 224 Not Found: /favicon.ico
+WARNING 2021-02-17 16:29:35,310 basehttp 157 "GET /favicon.ico HTTP/1.1" 404 1977
+WARNING 2021-02-17 16:29:35,915 log 224 Not Found: /favicon.ico
+WARNING 2021-02-17 16:29:35,916 basehttp 157 "GET /favicon.ico HTTP/1.1" 404 1977
+INFO 2021-02-17 16:29:36,215 basehttp 157 "GET /static/images/adv01.jpg HTTP/1.1" 200 39831
+INFO 2021-02-17 16:31:18,609 autoreload 240 E:\eric\py_django\django\meiduo_project\meiduo_mall\meiduo_mall\settings\dev.py changed, reloading.
+INFO 2021-02-17 16:31:19,694 autoreload 617 Watching for file changes with StatReloader

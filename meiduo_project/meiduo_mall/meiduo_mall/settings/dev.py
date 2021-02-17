@@ -208,6 +208,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
+# 静态文件访问路由前缀
 STATIC_URL = '/static/'
 
 # 配置静态文件加载路径
