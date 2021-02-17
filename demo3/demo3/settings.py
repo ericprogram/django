@@ -65,10 +65,10 @@ ROOT_URLCONF = 'demo3.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.jinja2.Jinja2', # Jinja2 修改1
-        'DIRS': [os.path.join(BASE_DIR,'templates')], #模板文件存放目录,存放模板 E:/eric/py_virtualenv/py_django/demo3/templates
+        'DIRS': [os.path.join(BASE_DIR,'templates')],  # 模板文件存放目录,存放模板 E:/eric/py_virtualenv/py_django/demo3/templates
         'APP_DIRS': True,
         'OPTIONS': {
-            'environment':'jinja2_env.environment', # Jinja2 修改2
+            'environment': 'jinja2_env.environment',  # Jinja2 修改2
             'context_processors': [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
@@ -80,7 +80,7 @@ TEMPLATES = [
     # Django 自带模板
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR,'templates')], #模板文件存放目录,存放模板 E:/eric/py_virtualenv/py_django/demo3/templates
+        'DIRS': [os.path.join(BASE_DIR,'templates')],  # 模板文件存放目录,存放模板 E:/eric/py_virtualenv/py_django/demo3/templates
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

@@ -17,7 +17,7 @@ from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
+print(BASE_DIR)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
@@ -60,14 +60,15 @@ TEMPLATES = [
         'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
+            # 补充Jinja2模板引擎环境
+            'environment': 'meiduo_mall.utils.jinja2_env.jinja2_environment',
             'context_processors': [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
-            # 补充Jinja2模板引擎环境
-            'environment': 'meiduo_mall.utils.jinja2_env.jinja2_environment',
+
         },
 
     },
@@ -95,7 +96,7 @@ WSGI_APPLICATION = 'meiduo_mall.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',  # 数据库引擎
-        'HOST': '127.0.0.1', # 数据库主机
+        'HOST': '127.0.0.1',  # 数据库主机
         'PORT': 3306,  # 数据库端口
         'USER': 'root',  # 数据库用户名
         'PASSWORD': '123456',  # 数据库用户密码
@@ -103,6 +104,7 @@ DATABASES = {
     }
 }
 
+# 配置项目缓存为Redis缓存
 CACHES = {
     #  默认的Redis配置项，采用0号Redis库
     "default": {
@@ -113,7 +115,7 @@ CACHES = {
         }
     },
     #  状态保持的Redis配置项，采用1号Redis库
-    "session": { # session
+    "session": {
         "BACKEND": "django_redis.cache.RedisCache",
         "LOCATION": "redis://127.0.0.1:6379/1",
         "OPTIONS": {
@@ -121,10 +123,12 @@ CACHES = {
         }
     },
 }
+# session 缓存配置
 SESSION_ENGINE = "django.contrib.sessions.backends.cache"
 SESSION_CACHE_ALIAS = "session"
 
 
+# 日志配置
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,  # 是否禁用已经存在的日志器
@@ -189,9 +193,10 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'zh-hans'   # 使用中国语言
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Shanghai'  # 使用中国上海时间
+
 
 USE_I18N = True
 
@@ -204,3 +209,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# 配置静态文件加载路径
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]

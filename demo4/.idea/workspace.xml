@@ -20,18 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="78dc1e1c-0dc6-4ebe-9f8f-1016379aa349" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/vue.js/Todolist案例.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue.js/Vue的基本使用.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue.js/vue.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue.js/列表渲染.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue.js/操作数据.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue.js/操作数据02.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue.js/条件渲染.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue.js/表单输入绑定.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../meiduo_project/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo3/demo3/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/../demo3/demo3/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/booktest/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/booktest/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/booktest/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/booktest/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo4/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/demo4/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../meiduo_project/meiduo_mall/meiduo_mall/logs/meiduo.log" beforeDir="false" afterPath="$PROJECT_DIR$/../meiduo_project/meiduo_mall/logs/meiduo.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../meiduo_project/meiduo_mall/meiduo_mall/settings/dev.py" beforeDir="false" afterPath="$PROJECT_DIR$/../meiduo_project/meiduo_mall/meiduo_mall/settings/dev.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +58,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/vue.js" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -79,7 +72,7 @@
       <recent name="E:\eric\py_django\django\demo4\vue.js" />
     </key>
   </component>
-  <component name="RunManager" selected="JavaScript Debug.列表渲染.html">
+  <component name="RunManager" selected="Django Server.demo4">
     <configuration name="Todolist案例.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/demo4/vue.js/Todolist案例.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
@@ -121,17 +114,13 @@
     <list>
       <item itemvalue="Django Server.demo4" />
       <item itemvalue="JavaScript Debug.条件渲染.html" />
-      <item itemvalue="JavaScript Debug.列表渲染.html" />
-      <item itemvalue="JavaScript Debug.表单输入绑定.html" />
       <item itemvalue="JavaScript Debug.Todolist案例.html" />
       <item itemvalue="JavaScript Debug.Vue的基本使用.html" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JavaScript Debug.列表渲染.html" />
         <item itemvalue="JavaScript Debug.Vue的基本使用.html" />
         <item itemvalue="JavaScript Debug.Todolist案例.html" />
-        <item itemvalue="JavaScript Debug.表单输入绑定.html" />
         <item itemvalue="JavaScript Debug.条件渲染.html" />
       </list>
     </recent_temporary>
@@ -148,6 +137,8 @@
       <workItem from="1612834191089" duration="19899000" />
       <workItem from="1612930137021" duration="339000" />
       <workItem from="1613353452033" duration="10828000" />
+      <workItem from="1613534266501" duration="117000" />
+      <workItem from="1613549120346" duration="733000" />
     </task>
     <servers />
   </component>
@@ -175,10 +166,10 @@
       <screen x="0" y="0" width="1920" height="1046" />
     </state>
     <state x="695" y="323" key="#com.intellij.fileTypes.FileTypeChooser/1920.0.1920.1046/0.0.1920.1046@0.0.1920.1046" timestamp="1613354900553" />
-    <state x="740" y="278" key="FileChooserDialogImpl" timestamp="1613361115317">
+    <state x="740" y="278" key="FileChooserDialogImpl" timestamp="1613534278242">
       <screen x="0" y="0" width="1920" height="1046" />
     </state>
-    <state x="740" y="278" key="FileChooserDialogImpl/1920.0.1920.1046/0.0.1920.1046@0.0.1920.1046" timestamp="1613361115317" />
+    <state x="740" y="278" key="FileChooserDialogImpl/1920.0.1920.1046/0.0.1920.1046@0.0.1920.1046" timestamp="1613534278242" />
     <state width="1877" height="286" key="GridCell.Tab.0.bottom" timestamp="1613400807287">
       <screen x="0" y="0" width="1920" height="1046" />
     </state>

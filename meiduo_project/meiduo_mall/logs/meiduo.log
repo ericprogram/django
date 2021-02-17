@@ -1,0 +1,14 @@
+INFO 2021-02-17 16:17:32,960 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-02-17 16:17:35,170 basehttp 157 "GET / HTTP/1.1" 200 16299
+INFO 2021-02-17 16:17:35,210 basehttp 157 "GET /static/admin/css/fonts.css HTTP/1.1" 200 423
+INFO 2021-02-17 16:17:35,441 basehttp 157 "GET /static/admin/fonts/Roboto-Regular-webfont.woff HTTP/1.1" 200 85876
+INFO 2021-02-17 16:17:35,442 basehttp 157 "GET /static/admin/fonts/Roboto-Bold-webfont.woff HTTP/1.1" 200 86184
+INFO 2021-02-17 16:17:35,443 basehttp 157 "GET /static/admin/fonts/Roboto-Light-webfont.woff HTTP/1.1" 200 85692
+INFO 2021-02-17 16:21:44,173 autoreload 240 E:\eric\py_django\django\meiduo_project\meiduo_mall\meiduo_mall\settings\dev.py changed, reloading.
+INFO 2021-02-17 16:21:45,313 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-02-17 16:22:36,434 autoreload 240 E:\eric\py_django\django\meiduo_project\meiduo_mall\meiduo_mall\settings\dev.py changed, reloading.
+INFO 2021-02-17 16:22:37,508 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-02-17 16:22:47,094 autoreload 240 E:\eric\py_django\django\meiduo_project\meiduo_mall\meiduo_mall\settings\dev.py changed, reloading.
+INFO 2021-02-17 16:22:48,170 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-02-17 16:22:58,786 autoreload 240 E:\eric\py_django\django\meiduo_project\meiduo_mall\meiduo_mall\settings\dev.py changed, reloading.
+INFO 2021-02-17 16:22:59,856 autoreload 617 Watching for file changes with StatReloader
