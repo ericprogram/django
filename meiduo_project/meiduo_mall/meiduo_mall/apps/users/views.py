@@ -4,6 +4,7 @@ from django.shortcuts import render
 from django.views import View
 import re
 
+from django_redis import get_redis_connection
 
 from .models import User
 from meiduo_mall.utils.response_code import RETCODE
@@ -47,7 +48,26 @@ class RegisterView(View):
         if not re.match(r'^1[3-9]\d{9}$', mobile):
             return http.HttpResponseForbidden('请输入正确的手机号码')
 
-        # TODO 短信验证码校验逻辑
+        # 短信验证码校验逻辑
+        # 创建redis连接对象
+        redis_conn = get_redis_connection('verify_codes')
+
+        # 获取redis数据库中当前用户短信验证码
+        sms_code_server_bytes = redis_conn.get('sms_%s' % mobile)
+
+        # 删除已经取出的短信验证码,让它只能被使用一次
+        redis_conn.delete('sms_%s' % mobile)
+
+        # 判断redis中短信验证码是否过期
+        if sms_code_server_bytes is None:
+            return http.JsonResponse({'code': RETCODE.SMSCODERR, 'errmsg': '短信验证码已过期'})
+
+        # 将bytes类型转换为字符串类型
+        sms_code_server = sms_code_server_bytes.decode()
+
+        # 用户填写的和redis中的短信验证码是否一致
+        if sms_code != sms_code_server:
+            return http.JsonResponse({'code': RETCODE.SMSCODERR, 'errmsg': '短信验证码填写错误'})
 
         # 3.创建user并且存储到表中
         # user = User.objects.create(
