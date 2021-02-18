@@ -1,10 +1,12 @@
 from django import http
+from django.contrib.auth import login
 from django.shortcuts import render
 from django.views import View
 import re
 
-from .modules import User
 
+from .models import User
+from meiduo_mall.utils.response_code import RETCODE
 
 class RegisterView(View):
     """ 用户注册 """
@@ -62,5 +64,44 @@ class RegisterView(View):
         # 传参的第一个为位置参数，后面都为关键字参数所以需要password=password
         user = User.objects.create_user(username, password=password, mobile=mobile)
 
-        # 4.响应(注册成功，即代表登陆成功)
+        # 注册成功，即代表登陆成功 (状态保持)
+        # request.session['id'] = user.id
+        # user_id = request.session['id']
+
+        # django 自带的状态保持
+        login(request, user)
+
+        # 4.响应()
+
         return http.HttpResponse('注册成功，登陆到首页')
+
+
+class UsernameCountView(View):
+    """ 判断用户名是否重复"""
+    def get(self, request, username):
+
+        # 查询user表，查询username的数量
+        count = User.objects.filter(username=username).count()
+
+        # 包装响应数据
+        data = {
+            'count': count,
+            'code': 'RETCODE.OK',  # 自定义状态码
+            'errmsg': "OK"
+
+        }
+        # 响应
+        return http.JsonResponse(data)
+
+
+class MobileCountView(View):
+    """ 判断手机号是否重复 """
+    def get(self, request, mobile):
+        # 查询user表，查询mobile的数量
+        count = User.objects.filter(mobile=mobile).count()
+        date = {
+            'count': count,
+            'code': 'RETCODE.OK',  # 自定义状态码
+            'errmsg': "OK"
+        }
+        return http.JsonResponse(date)
