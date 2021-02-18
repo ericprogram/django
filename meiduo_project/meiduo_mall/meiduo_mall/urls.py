@@ -27,5 +27,8 @@ urlpatterns = [
     # path('', include(('users.urls', "users"), namespace='users')),
     re_path('^', include(('users.urls', "users"), namespace='users')),
 
+    # 图形验证码 verifications
+    re_path(r'^', include(('verifications.urls', 'verifications'), namespace='verifications')),
+
 ]
 
