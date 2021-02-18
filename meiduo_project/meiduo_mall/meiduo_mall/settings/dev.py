@@ -74,7 +74,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # 'meiduo_mall.apps.users.apps.UsersConfig'
-    'users.apps.UsersConfig'
+    'users.apps.UsersConfig'  # 用户模块
 ]
 
 
@@ -249,3 +249,8 @@ STATIC_URL = '/static/'
 
 # 配置静态文件加载路径
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+
+
+# 指定认证系统模型类
+# UTH_USER_MODEL must be of the form 'app_label.model_name'
+AUTH_USER_MODEL = 'users.User'
