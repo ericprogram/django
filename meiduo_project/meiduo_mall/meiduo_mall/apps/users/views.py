@@ -1,10 +1,9 @@
-import re
-
 from django import http
 from django.shortcuts import render
-
-# Create your views here.
 from django.views import View
+import re
+
+from .modules import User
 
 
 class RegisterView(View):
@@ -27,7 +26,8 @@ class RegisterView(View):
         sms_code = query_dict.get('sms_code')
         allow = query_dict.get('allow')  # 如果表单中的复选框没有指定value时勾选，传入的是'on'，反之None.
 
-        # 2.校验数据
+        # 2.校验数据  ‘’, {} , [],False, None
+        # all([]) 返回 True, False
         if all([username, password, password2, mobile, sms_code, allow]) is False:
             # 前台有非空校验，校验是防止用户在非前台页面注册的情况
             return http.HttpResponseForbidden('缺少必传参数')
@@ -45,10 +45,22 @@ class RegisterView(View):
         if not re.match(r'^1[3-9]\d{9}$', mobile):
             return http.HttpResponseForbidden('请输入正确的手机号码')
 
-        #TODO 短信验证码校验逻辑
-
+        # TODO 短信验证码校验逻辑
 
         # 3.创建user并且存储到表中
-        # 响应
+        # user = User.objects.create(
+        #     username = username,
+        #     password = password,
+        #     mobile = mobile
+        #
+        # )
+        # user.set_password(password)
+        # user.save()
 
-        pass
+        # 最简单的方法,创建并且保存用户
+        # def create_user(self, username, email=None, password=None, **extra_fields):
+        # 传参的第一个为位置参数，后面都为关键字参数所以需要password=password
+        user = User.objects.create_user(username, password=password, mobile=mobile)
+
+        # 4.响应(注册成功，即代表登陆成功)
+        return http.HttpResponse('注册成功，登陆到首页')
