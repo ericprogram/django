@@ -1,5 +1,5 @@
 from django import http
-from django.contrib.auth import login
+from django.contrib.auth import login, authenticate
 from django.shortcuts import render
 from django.views import View
 import re
@@ -132,3 +132,28 @@ class LoginView(View):
     """ 登陆 """
     def get(self, request):
         return render(request, 'login.html')
+
+    def post(self, request):
+        # 接收请求表单数据
+        query_dict = request.POST
+        print(query_dict.dict().keys())
+        username = query_dict.get('username')
+        password = query_dict.get('password')
+        remembered = query_dict.get('remembered')
+
+        # 校验
+        if all([username,password]) is False:
+            return http.HttpResponseForbidden("缺少必传参数")
+
+        # 登陆验证
+
+        # user = User.objects.get(username=username)
+        # user.check_password(password)
+        # 以上两句代码相当于  authenticate(request, username=username, password=password)
+        user = authenticate(request, username=username, password=password)
+
+        # 状态保持
+        login(request, user)
+
+        # 重定向到首页
+        return http.HttpResponse("登陆成功，跳转到首页")
