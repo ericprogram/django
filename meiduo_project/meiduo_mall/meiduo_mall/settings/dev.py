@@ -262,3 +262,6 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 # 指定认证系统模型类
 # UTH_USER_MODEL must be of the form 'app_label.model_name'
 AUTH_USER_MODEL = 'users.User'
+
+# 修改登陆认证后端
+AUTHENTICATION_BACKENDS = ['users.utils.UsernameMobileAuthBackend']

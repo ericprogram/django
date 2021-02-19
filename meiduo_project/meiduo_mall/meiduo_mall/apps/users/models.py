@@ -3,6 +3,7 @@ from django.db import models
 
 # Create your models here.
 
+
 class User(AbstractUser):
     """ 自定义用户模型 """
     mobile = models.CharField(max_length=11, unique=True, verbose_name='手机号')

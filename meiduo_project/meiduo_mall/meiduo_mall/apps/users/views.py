@@ -1,6 +1,6 @@
 from django import http
 from django.contrib.auth import login, authenticate
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views import View
 import re
 
@@ -93,8 +93,8 @@ class RegisterView(View):
         login(request, user)
 
         # 4.响应()
-
-        return http.HttpResponse('注册成功，登陆到首页')
+        # return http.HttpResponse('注册成功，登陆到首页')
+        return redirect('/')
 
 
 class UsernameCountView(View):
@@ -146,10 +146,16 @@ class LoginView(View):
             return http.HttpResponseForbidden("缺少必传参数")
 
         # 登陆验证
-
-        # user = User.objects.get(username=username)
+        # if 如果是手机登陆:
+        #     user = User.objects.get(mobile=username)
+        # elif 如果是邮箱登陆：
+        #     user = User.objects.get(email=username)
+        # else:
+        #     user = User.objects.get(username=username)
         # user.check_password(password)
         # 以上两句代码相当于  authenticate(request, username=username, password=password)
+
+        # authenticate 默认配置读取的是username ，如果需要用手机号登陆，需要重写authenticate
         user = authenticate(request, username=username, password=password)
 
         # 判断用户是否通过身份认证
@@ -172,4 +178,5 @@ class LoginView(View):
         request.session.set_expiry(None if remembered else 0)
 
         # 重定向到首页
-        return http.HttpResponse("登陆成功，跳转到首页")
+        # return http.HttpResponse("登陆成功，跳转到首页")
+        return redirect('/')

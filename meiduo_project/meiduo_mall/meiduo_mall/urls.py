@@ -19,16 +19,22 @@ from django.urls import path, include, re_path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+
     # 用户模块 users
     # Django1.x跟Django2.x版本区别:
     # 路由层1.x用的是url,而2.x用的是path,
     # 2.x版本中的path的第一个参数不再是正则表达式,而是些什么就匹配什么,是精准匹配,
     # 当使用2.x不习惯的时候, 2.x还有一个叫re_path , 2.x中的re_path就是1.x的url
     # path('', include(('users.urls', "users"), namespace='users')),
-    re_path('^', include(('users.urls', "users"), namespace='users')),
+    re_path(r'^', include(('users.urls', "users"), namespace='users')),
 
     # 图形验证码 verifications
     re_path(r'^', include(('verifications.urls', 'verifications'), namespace='verifications')),
+
+    # 首页模块
+    re_path(r'^', include(('contents.urls', 'contents'), namespace='contents')),
+
+
 
 ]
 
