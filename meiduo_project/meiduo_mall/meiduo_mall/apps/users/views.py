@@ -152,8 +152,24 @@ class LoginView(View):
         # 以上两句代码相当于  authenticate(request, username=username, password=password)
         user = authenticate(request, username=username, password=password)
 
+        # 判断用户是否通过身份认证
+        if user is None:
+            return render(request, 'login.html', {'account_errmsg': '用户名或密码错误'})
         # 状态保持
         login(request, user)
+
+        # 如果用户没有勾选记住登陆，设置session过期时间为会话结束
+        # if remembered is None:
+        #     # 设置过期时间
+        #     request.session.set_expiry(0)
+        # else:
+        #     request.session.set_expiry(3600 * 24 * 7)
+
+        # 三目运算
+        # request.session.set_expiry(0 if remembered is None else (3600 * 24 * 7))
+
+        # 如果勾选记住密码设置为None,默认两周，否则设置会话时间为结束
+        request.session.set_expiry(None if remembered else 0)
 
         # 重定向到首页
         return http.HttpResponse("登陆成功，跳转到首页")
