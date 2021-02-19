@@ -9,6 +9,7 @@ from django_redis import get_redis_connection
 from .models import User
 from meiduo_mall.utils.response_code import RETCODE
 
+
 class RegisterView(View):
     """ 用户注册 """
     def get(self, request):
@@ -125,3 +126,9 @@ class MobileCountView(View):
             'errmsg': "OK"
         }
         return http.JsonResponse(date)
+
+
+class LoginView(View):
+    """ 登陆 """
+    def get(self, request):
+        return render(request, 'login.html')
