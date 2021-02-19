@@ -7,7 +7,8 @@ from django_redis import get_redis_connection
 
 from meiduo_mall.libs.captcha.captcha import captcha
 from meiduo_mall.utils.response_code import RETCODE
-from meiduo_mall.libs.yuntongxun.sms import CCP
+# from meiduo_mall.libs.yuntongxun.sms import CCP
+from celery_tasks.sms.tasks import send_sms_code
 from . import constants
 
 
@@ -90,9 +91,12 @@ class SMSCodeView(View):
         # 执行管道
         pl.execute()
 
-        # 利用容联云平台发短信
-        # CCP().send_template_sms('接收短信手机号', ['短信验证码', '提示用户短信验证码多久过期单位分钟'],'模板ID')
-        CCP().send_template_sms(mobile, [sms_code, constants.SMS_CODE_EXPIRE_TIMEOUT], '1')
+        # # 利用容联云平台发短信
+        # # CCP().send_template_sms('接收短信手机号', ['短信验证码', '提示用户短信验证码多久过期单位分钟'],'模板ID')
+        # CCP().send_template_sms(mobile, [sms_code, constants.SMS_CODE_EXPIRE_TIMEOUT], '1')
+
+        # Celery - 分布式任务队列
+        send_sms_code.delay(mobile, sms_code)
         print("sms_code", sms_code)
         # 响应
         return http.JsonResponse({'code': RETCODE.OK, 'errmsg': '短信已发送'})
