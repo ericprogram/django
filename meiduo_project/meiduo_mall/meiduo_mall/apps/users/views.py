@@ -1,9 +1,9 @@
 from django import http
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login, authenticate, logout
 from django.shortcuts import render, redirect
 from django.views import View
 import re
-
+from django.conf import settings
 from django_redis import get_redis_connection
 
 from .models import User
@@ -94,7 +94,9 @@ class RegisterView(View):
 
         # 4.响应()
         # return http.HttpResponse('注册成功，登陆到首页')
-        return redirect('/')
+        response = redirect('/')
+        response.set_cookie('username', user.username, max_age=settings.SESSION.SESSION_COOKIE_AGE)
+        return response
 
 
 class UsernameCountView(View):
@@ -177,6 +179,47 @@ class LoginView(View):
         # 如果勾选记住密码设置为None,默认两周，否则设置会话时间为结束
         request.session.set_expiry(None if remembered else 0)
 
+        # 获取用户界面来源
+        next = request.GET.get('next')
+
+        # 用户登陆成功后，向cookie中存储username
+        response = redirect(next or '/')
+
+        # response.set_cookie('username', user.username,
+        #                     max_age=None if remembered is None else settings.SESSION_COOKIE_AGE)
+        response.set_cookie('username', user.username,
+                            max_age=remembered and settings.SESSION_COOKIE_AGE)
         # 重定向到首页
         # return http.HttpResponse("登陆成功，跳转到首页")
-        return redirect('/')
+
+        return response
+
+
+class LogoutView(View):
+    """ 登出 """
+    def get(self, request):
+        # 1.清除状态保持
+        logout(request)
+
+        # 创建响应对象
+        response = redirect('users:login')
+        # 2.清除cookie中的username
+        response.delete_cookie('username')
+
+        # 3.重定向到login
+        return response
+
+
+class InfoView(View):
+    """ 用户中心 """
+    def get(self, request):
+        user = request.user
+        # 如果是登陆用户，就展示用户中心界面
+        if user.is_authenticated:
+            return render(request, 'user_center_info.html')
+        else:
+            # return redirect('users:login')
+            return redirect('/login/?next=/info/')
+
+
+
