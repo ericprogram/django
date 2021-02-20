@@ -34,7 +34,8 @@ urlpatterns = [
     # 首页模块
     re_path(r'^', include(('contents.urls', 'contents'), namespace='contents')),
 
-
+    # 首页模块
+    re_path(r'^', include(('oauth.urls', 'oauth'), namespace='oauth')),
 
 ]
 
