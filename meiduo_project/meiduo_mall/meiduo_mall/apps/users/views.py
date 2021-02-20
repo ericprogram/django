@@ -5,6 +5,9 @@ from django.views import View
 import re
 from django.conf import settings
 from django_redis import get_redis_connection
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
 
 from .models import User
 from meiduo_mall.utils.response_code import RETCODE
@@ -210,16 +213,28 @@ class LogoutView(View):
         return response
 
 
-class InfoView(View):
+# class InfoView(View):
+#     """ 用户中心 """
+#     def get(self, request):
+#         user = request.user
+#         # 如果用户没有登陆就调整到登陆界面
+#         if not user.is_authenticated:
+#             # return redirect('users:login')
+#             return redirect('/login/?next=/info/')
+#         else:
+#             # 如果用户登陆了，就展示用户中心界面
+#             return render(request, 'user_center_info.html')
+
+
+# 精简代码实现用户中心
+class InfoView(LoginRequiredMixin, View):
     """ 用户中心 """
     def get(self, request):
-        user = request.user
-        # 如果是登陆用户，就展示用户中心界面
-        if user.is_authenticated:
-            return render(request, 'user_center_info.html')
-        else:
-            # return redirect('users:login')
-            return redirect('/login/?next=/info/')
+        return render(request, 'user_center_info.html')
 
-
-
+# 精简代码实现用户中心第三种方法 装饰器
+# @method_decorator(login_required, name='get')
+# class InfoView(View):
+#     """ 用户中心 """
+#     def get(self, request):
+#         return render(request, 'user_center_info.html')

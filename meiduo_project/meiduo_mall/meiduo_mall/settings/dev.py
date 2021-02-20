@@ -265,3 +265,6 @@ AUTH_USER_MODEL = 'users.User'
 
 # 修改登陆认证后端
 AUTHENTICATION_BACKENDS = ['users.utils.UsernameMobileAuthBackend']
+
+# 修改登陆界面路由
+LOGIN_URL = '/login/'
