@@ -12,6 +12,10 @@ from django_redis import get_redis_connection
 from meiduo_mall.utils.response_code import RETCODE
 from .utils import generate_openid_signature, check_openid
 from . models import OAuthQQUser
+from users.models import User
+
+# 导入应用模块时，导包依赖路径必须和注册应用时所用的导包依赖要一致
+# from meiduo_mall.apps.users.models import User
 
 QQ_CLIENT_ID = '101518219'
 QQ_CLIENT_SECRET = '418d84ebdc7241efb79536886ae95224'
@@ -149,15 +153,39 @@ class QQAuthView(View):
         if openid is None:
             return HttpResponseForbidden('openid无效')
 
-
-
         # 3.根据手机号字段查询user表
-        # 3.1 如果通过mobile字段查询用户，说明此用户是已有美多老用户
-        # 3.2 如果没有查询到用户，说明它是一个美多新用户
-        # 3.3 如果是新用户，就创建一个新的user，用户名就用mobile
-        # 4.创建OAuthQQUser 新的记录保存 openid以及 user
+        try:
+            # 3.1 如果通过mobile字段查询用户，说明此用户是已有美多老用户
+            user = User.objects.get(mobile=mobile)
+            # 3.1.1 如果是老用户还要校验用户密码是否正确
+            if user.check_password(password) is False:
+                return HttpResponseForbidden('老用户信息填写不正确')
+        except User.DoesNotExist:
+            pass
+            # 3.2 如果没有查询到用户，说明它是一个美多新用户
+            # 3.3 如果是新用户，就创建一个新的user，用户名就用mobile
+            user = User.objects.create_user(username=mobile, password=password, mobile=mobile)
+
+        # 4.创建OAuthQQUser 新的记录保存 openid以及 user openid 绑定用户
+        OAuthQQUser.objects.create(
+            openid=openid,
+            user=user
+        )
+
         # 5.状态保存 username
+        login(request, user)
+
+        # 获取state 界面来源
+        next = request.GET.get('state') or '/'
+
+        # 创建响应对象
+        response = redirect(next)
+        response.set_cookie('username', user.username, max_age=settings.SESSION_COOKIE_AGE)
+
         # 重定向到指定来源界面
+        return response
+
+
 
         pass
 
