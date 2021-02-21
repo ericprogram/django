@@ -1,3 +1,5 @@
+import json
+
 from django import http
 from django.contrib.auth import login, authenticate, logout
 from django.shortcuts import render, redirect
@@ -242,6 +244,28 @@ class InfoView(LoginRequiredMixin, View):
 
 
 class EmailView(LoginRequiredView):
-    """ 邮箱 """
-    def get(self, request):
-        pass
+    """ 设置用户邮箱，并发送激活邮箱url """
+
+    def put(self, request):
+        # 1.接收请求体非表单数据 body
+        json_dict = json.loads(request.body.decode())
+        email = json_dict.get('email')
+
+        # 2.校验
+        if not re.match(r'^[a-z0-9][\w\.\-]*@[a-z0-9\-]+(\.[a-z]{2,5}){1,2}$', email):
+            return http.HttpResponseForbidden('邮箱格式有误')
+
+        # 3.修改user模型的email字段
+        user = request.user
+
+        # 如果用户没有去设置邮箱再去设置，如果设置过了就不要再设置了
+        if user.email != email:
+            user.email = email
+            user.save()
+
+        # 给当前设置的邮箱发一封激活url
+
+
+
+        # 响应
+        return http.JsonResponse({'code': RETCODE.OK, 'errmsg': '添加邮箱成功'})
