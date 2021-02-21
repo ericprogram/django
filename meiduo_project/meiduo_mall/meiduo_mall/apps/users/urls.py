@@ -21,4 +21,7 @@ urlpatterns = [
 
     # 用户中心
     url(r'^info/$', views.InfoView.as_view(), name='info'),
+
+    # 用户中心
+    url(r'^email/$', views.EmailView.as_view(), name='email'),
 ]

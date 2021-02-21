@@ -11,6 +11,7 @@ from django.utils.decorators import method_decorator
 
 from .models import User
 from meiduo_mall.utils.response_code import RETCODE
+from meiduo_mall.utils.view import LoginRequiredView
 
 
 class RegisterView(View):
@@ -238,3 +239,9 @@ class InfoView(LoginRequiredMixin, View):
 #     """ 用户中心 """
 #     def get(self, request):
 #         return render(request, 'user_center_info.html')
+
+
+class EmailView(LoginRequiredView):
+    """ 邮箱 """
+    def get(self, request):
+        pass
