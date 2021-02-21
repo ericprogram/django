@@ -1,3 +1,4 @@
+import re
 from django.contrib.auth import login
 from django.shortcuts import render, redirect
 from QQLoginTool.QQtool import OAuthQQ
@@ -5,11 +6,11 @@ from django.views import View
 from django.conf import settings
 from django.http import JsonResponse, HttpResponse, HttpResponseForbidden, HttpResponseServerError
 import logging
+from django_redis import get_redis_connection
 
 
 from meiduo_mall.utils.response_code import RETCODE
-
-from utils import generate_openid_signature
+from .utils import generate_openid_signature, check_openid
 from . models import OAuthQQUser
 
 QQ_CLIENT_ID = '101518219'
@@ -18,6 +19,7 @@ QQ_REDIRECT_URI = 'http://www.meiduo.site:8000/oauth_callback'
 
 
 logger = logging.getLogger('django')
+
 
 class QQAuthURLView(View):
     """提供QQ登陆URL"""
@@ -98,4 +100,64 @@ class QQAuthView(View):
             openid = generate_openid_signature(openid)
             # 说明openid还没有绑定美多用户，渲染一个绑定界面
             return render(request, 'oauth_callback.html', {'openid': openid})
+
+    def post(self, request):
+        """ openid 绑定用户逻辑 """
+
+        # 1.接收表单数据
+        query_dict = request.POST
+        mobile = query_dict.get('mobile')
+        password = query_dict.get('password')
+        sms_code = query_dict.get('sms_code')
+        openid_sign = query_dict.get('openid')
+
+        # 2.校验
+        # if all(query_dict.dict().values()) is False:
+        #     return HttpResponseForbidden('缺少必传参数')
+        if all([mobile, password, sms_code, openid_sign]) is False:
+            return HttpResponseForbidden('缺少必传参数')
+
+        if not re.match(r'^[0-9A-Za-z]{8,20}$', password):
+            return HttpResponseForbidden('请输入8-20位的密码')
+
+        if not re.match(r'^1[3-9]\d{9}$', mobile):
+            return HttpResponseForbidden('请输入正确的手机号码')
+
+        # 短信验证码校验逻辑
+        # 创建redis连接对象
+        redis_conn = get_redis_connection('verify_codes')
+
+        # 获取redis数据库中当前用户短信验证码
+        sms_code_server_bytes = redis_conn.get('sms_%s' % mobile)
+
+        # 删除已经取出的短信验证码,让它只能被使用一次
+        redis_conn.delete('sms_%s' % mobile)
+
+        # 判断redis中短信验证码是否过期
+        if sms_code_server_bytes is None:
+            return JsonResponse({'code': RETCODE.SMSCODERR, 'errmsg': '短信验证码已过期'})
+
+        # 将bytes类型转换为字符串类型
+        sms_code_server = sms_code_server_bytes.decode()
+
+        # 用户填写的和redis中的短信验证码是否一致
+        if sms_code != sms_code_server:
+            return JsonResponse({'code': RETCODE.SMSCODERR, 'errmsg': '短信验证码填写错误'})
+
+        # 对openid进行解密
+        openid = check_openid(openid_sign)
+        if openid is None:
+            return HttpResponseForbidden('openid无效')
+
+
+
+        # 3.根据手机号字段查询user表
+        # 3.1 如果通过mobile字段查询用户，说明此用户是已有美多老用户
+        # 3.2 如果没有查询到用户，说明它是一个美多新用户
+        # 3.3 如果是新用户，就创建一个新的user，用户名就用mobile
+        # 4.创建OAuthQQUser 新的记录保存 openid以及 user
+        # 5.状态保存 username
+        # 重定向到指定来源界面
+
+        pass
 
