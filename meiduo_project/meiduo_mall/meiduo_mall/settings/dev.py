@@ -138,7 +138,7 @@ DATABASES = {
         'HOST': '127.0.0.1',  # 数据库主机
         'PORT': 3306,  # 数据库端口
         'USER': 'root',  # 数据库用户名
-        'PASSWORD': '123456',  # 数据库用户密码
+        'PASSWORD': 'spring123',  # 数据库用户密码
         'NAME': 'meiduo'  # 数据库名字
     }
 }

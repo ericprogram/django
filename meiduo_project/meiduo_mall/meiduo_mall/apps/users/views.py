@@ -11,7 +11,7 @@ from django.utils.decorators import method_decorator
 
 from .models import User
 from meiduo_mall.utils.response_code import RETCODE
-from meiduo_mall.utils.view import LoginRequiredView
+from meiduo_mall.utils.views import LoginRequiredView
 
 
 class RegisterView(View):
