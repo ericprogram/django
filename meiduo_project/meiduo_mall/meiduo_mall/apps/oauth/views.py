@@ -8,6 +8,8 @@ import logging
 
 
 from meiduo_mall.utils.response_code import RETCODE
+
+from utils import generate_openid_signature
 from . models import OAuthQQUser
 
 QQ_CLIENT_ID = '101518219'
@@ -92,6 +94,8 @@ class QQAuthView(View):
             # 重定向来源界面
             return response
         except OAuthQQUser.DoesNotExist:
+            # 对openid进行加密
+            openid = generate_openid_signature(openid)
             # 说明openid还没有绑定美多用户，渲染一个绑定界面
             return render(request, 'oauth_callback.html', {'openid': openid})
 
