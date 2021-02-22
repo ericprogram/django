@@ -1,10 +1,9 @@
 import json
-
+import re
 from django import http
 from django.contrib.auth import login, authenticate, logout
 from django.shortcuts import render, redirect
 from django.views import View
-import re
 from django.conf import settings
 from django_redis import get_redis_connection
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -13,11 +12,11 @@ from django.utils.decorators import method_decorator
 from django.core.mail import send_mail
 
 
-from .models import User
+from . models import User
+from . utils import generate_verify_email_url
 from meiduo_mall.utils.response_code import RETCODE
 from meiduo_mall.utils.views import LoginRequiredView
-
-
+from celery_tasks.email.tasks import send_verify_email
 
 class RegisterView(View):
     """ 用户注册 """
@@ -269,9 +268,14 @@ class EmailView(LoginRequiredView):
         # 给当前设置的邮箱发一封激活url
         # send_mail(subject='邮件的标题/主题', message='普通字符串邮件正文', from_email='发件人', recipient_list=['收件人'],
         #           html_message='超文本邮件正文')
-        html_message = '<p> 这是一个激活邮件<a href ="http://www.baidu.com">点我激活</a></p>'
+        # html_message = '<p> 这是一个激活邮件<a href ="http://www.baidu.com">点我激活</a></p>'
         # 美多商城测试 < chm522 @ 163.com >
-        send_mail(subject='激活邮箱', message='普通字符串邮件正文', from_email=settings.EMAIL_FROM, recipient_list=[email],
-                  html_message=html_message)
+        # send_mail(subject='激活邮箱', message='普通字符串邮件正文', from_email=settings.EMAIL_FROM, recipient_list=[email],
+        #           html_message=html_message)
+
+        # verify_url = 'http://www.baidu.com'
+        verify_url = generate_verify_email_url
+        send_verify_email.delay(email, verify_url)
+
         # 响应
         return http.JsonResponse({'code': RETCODE.OK, 'errmsg': '添加邮箱成功'})

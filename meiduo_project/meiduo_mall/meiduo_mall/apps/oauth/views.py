@@ -184,8 +184,3 @@ class QQAuthView(View):
 
         # 重定向到指定来源界面
         return response
-
-
-
-        pass
-
