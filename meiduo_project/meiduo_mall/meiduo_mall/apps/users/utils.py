@@ -1,6 +1,6 @@
 import re
 from django.contrib.auth.backends import ModelBackend
-from itsdangerous import TimedJSONWebSignatureSerializer as Serializer
+from itsdangerous import TimedJSONWebSignatureSerializer as Serializer ,BadData
 from django.conf import settings
 
 
@@ -51,3 +51,27 @@ def generate_verify_email_url(user):
 
     # 返回url
     return verify_url
+
+def get_user_check_token(token):
+    """
+    对token进行解密并查询返回到指定user
+    @param token: 要解密的用户数据
+    @return: user or None
+    """
+    # 1.创建解密的实例对象
+    serializer = Serializer(secret_key=settings.SECRET_KEY, expires_in=3600 * 24)
+
+    # 2.loads
+    try:
+        date = serializer.loads(token)
+        user_id = date.get('user_id')
+        email = date.get('email')
+        try:
+            user = User.objects.get(id=user_id,email=email)
+            return user
+        except User.DoesNotExist:
+            return None
+    except BadData:
+        return None
+
+

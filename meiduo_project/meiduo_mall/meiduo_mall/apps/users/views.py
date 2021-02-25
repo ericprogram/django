@@ -13,7 +13,7 @@ from django.core.mail import send_mail
 
 
 from . models import User
-from . utils import generate_verify_email_url
+from . utils import generate_verify_email_url, get_user_check_token
 from meiduo_mall.utils.response_code import RETCODE
 from meiduo_mall.utils.views import LoginRequiredView
 from celery_tasks.email.tasks import send_verify_email
@@ -274,8 +274,26 @@ class EmailView(LoginRequiredView):
         #           html_message=html_message)
 
         # verify_url = 'http://www.baidu.com'
-        verify_url = generate_verify_email_url
+        verify_url = generate_verify_email_url(user)
         send_verify_email.delay(email, verify_url)
 
         # 响应
         return http.JsonResponse({'code': RETCODE.OK, 'errmsg': '添加邮箱成功'})
+
+class EmailVerifyView(View):
+    """激活邮箱"""
+    def get(self, request):
+        # 1.接收查询参数中 token
+        token = request.GET.get('token')
+
+        # 2 对token解密，并根据用户信息查询到指定user
+        user = get_user_check_token(token)
+        if user is None:
+            return http.HttpResponseForbidden('邮箱激活失败')
+
+        # 3.修改指定user的email_active字段
+        user.email_active = True
+        user.save()
+
+        # 4.响应
+        return render(request,'user_center_info.html')

@@ -58,11 +58,11 @@ sys.path.insert(0, os.path.join(BASE_DIR, 'apps'))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'bkn#swmx%(q6-6t&a#b-5#98$po+2-dx6dkra$t@m*m1a-u%$o'
 
-# SECURITY WARNING: don't run with debug turned on in production!
+# SECURITY WARNING: don't run with debug EMAIL_VERIFY_URLturned on in production!
 DEBUG = True
 
-# 允许哪些域名访问django 127.0.0.1
-ALLOWED_HOSTS = ['www.meiduo.site', '127.0.0.1']
+# 允许哪些域名访问django 127.0.0.1 'www.meiduo.site', '127.0.0.1'
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
