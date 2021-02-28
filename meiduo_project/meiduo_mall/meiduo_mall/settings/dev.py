@@ -62,7 +62,7 @@ SECRET_KEY = 'bkn#swmx%(q6-6t&a#b-5#98$po+2-dx6dkra$t@m*m1a-u%$o'
 DEBUG = True
 
 # 允许哪些域名访问django 127.0.0.1 'www.meiduo.site', '127.0.0.1'
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['0.0.0.0:8888', 'localhost', '127.0.0.1', '127.0.0.1:8888', 'www.meiduo.site', 'www.meiduo.site:8888']
 
 
 # Application definition
@@ -78,6 +78,7 @@ INSTALLED_APPS = [
     # 'meiduo_mall.apps.users.apps.UsersConfig'
     'users.apps.UsersConfig',  # 用户模块
     'oauth.apps.OauthConfig',  # QQ 模块
+    'areas.apps.AreasConfig',  # 省市区模块
 ]
 
 
@@ -138,7 +139,7 @@ DATABASES = {
         'HOST': '127.0.0.1',  # 数据库主机
         'PORT': 3306,  # 数据库端口
         'USER': 'root',  # 数据库用户名
-        'PASSWORD': 'spring123',  # 数据库用户密码
+        'PASSWORD': '123456',  # 数据库用户密码spring123
         'NAME': 'meiduo'  # 数据库名字
     }
 }

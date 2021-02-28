@@ -30,4 +30,7 @@ urlpatterns = [
     # 邮箱激活
     url(r'^emails/verification/$', views.EmailVerifyView.as_view(), name='emails_verification'),
 
+    # 收货地址
+    url(r'^addresses/$', views.AddressesView.as_view(), name='addresses'),
+
 ]

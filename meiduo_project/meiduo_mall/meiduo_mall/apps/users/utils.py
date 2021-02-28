@@ -1,6 +1,6 @@
 import re
 from django.contrib.auth.backends import ModelBackend
-from itsdangerous import TimedJSONWebSignatureSerializer as Serializer ,BadData
+from itsdangerous import TimedJSONWebSignatureSerializer as Serializer, BadData
 from django.conf import settings
 
 
@@ -51,6 +51,7 @@ def generate_verify_email_url(user):
 
     # 返回url
     return verify_url
+
 
 def get_user_check_token(token):
     """

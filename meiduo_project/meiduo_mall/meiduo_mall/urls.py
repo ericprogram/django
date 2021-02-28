@@ -37,5 +37,8 @@ urlpatterns = [
     # 首页模块
     re_path(r'^', include(('oauth.urls', 'oauth'), namespace='oauth')),
 
+    # 省市区
+    re_path(r'^', include(('areas.urls', 'areas'), namespace='areas')),
+
 ]
 

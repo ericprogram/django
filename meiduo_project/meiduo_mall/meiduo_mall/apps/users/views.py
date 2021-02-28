@@ -18,6 +18,7 @@ from meiduo_mall.utils.response_code import RETCODE
 from meiduo_mall.utils.views import LoginRequiredView
 from celery_tasks.email.tasks import send_verify_email
 
+
 class RegisterView(View):
     """ 用户注册 """
     def get(self, request):
@@ -280,6 +281,7 @@ class EmailView(LoginRequiredView):
         # 响应
         return http.JsonResponse({'code': RETCODE.OK, 'errmsg': '添加邮箱成功'})
 
+
 class EmailVerifyView(View):
     """激活邮箱"""
     def get(self, request):
@@ -296,4 +298,10 @@ class EmailVerifyView(View):
         user.save()
 
         # 4.响应
-        return render(request,'user_center_info.html')
+        return render(request, 'user_center_info.html')
+
+
+class AddressesView(LoginRequiredView):
+    """用户收货地址"""
+    def get(self, request):
+        return render(request, 'user_center_site.html')
