@@ -33,6 +33,33 @@ class AreasViwe(View):
             return http.JsonResponse({'code': RETCODE.OK, 'errmsg': 'OK', 'province_list': province_list})
         else:
             # 如果前端传了area_id, 说明它想查指定区域的下级所有行政区
+            try:
+                # 查出指定id的行政区
+                parent_model = Area.objects.get(id=area_id)
+
+                # 获取指定行政区的下级所有行政区
+                sub_qs = parent_model.subs.all()
+
+                # 将sub_qs查询集中的模型转换为字典
+                sub_list = []
+                for sub_model in sub_qs:
+                    sub_list.append({
+                        'id': sub_model.id,
+                        'name': sub_model.name
+                    })
+
+                # 包装响应给前段的数据
+                sub_data = {
+                    'id': parent_model.id,
+                    'name': parent_model.name,
+                    'subs': sub_list
+                }
+
+                # 响应数据
+                return http.JsonResponse({'code': RETCODE.OK, 'errmsg': 'OK', 'sub_data': sub_data})
+
+            except Area.DoesNotExist:
+                return http.HttpResponseBadRequest('area_id 不存在')
             pass
 
 
